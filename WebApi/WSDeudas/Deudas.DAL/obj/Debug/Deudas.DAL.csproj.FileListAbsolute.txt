@@ -1,4 +1,9 @@
 C:\Users\mario.dominguez\Documents\GitHub\Deudas\WebApi\WSDeudas\Deudas.DAL\bin\Debug\Deudas.DAL.dll
 C:\Users\mario.dominguez\Documents\GitHub\Deudas\WebApi\WSDeudas\Deudas.DAL\bin\Debug\Deudas.DAL.pdb
+C:\Users\mario.dominguez\Documents\GitHub\Deudas\WebApi\WSDeudas\Deudas.DAL\bin\Debug\MySql.Data.EntityFramework.dll
+C:\Users\mario.dominguez\Documents\GitHub\Deudas\WebApi\WSDeudas\Deudas.DAL\bin\Debug\Oracle.DataAccess.EntityFramework.dll
+C:\Users\mario.dominguez\Documents\GitHub\Deudas\WebApi\WSDeudas\Deudas.DAL\bin\Debug\Oracle.ManagedDataAccess.EntityFramework.dll
+C:\Users\mario.dominguez\Documents\GitHub\Deudas\WebApi\WSDeudas\Deudas.DAL\bin\Debug\Oracle.DataAccess.dll
+C:\Users\mario.dominguez\Documents\GitHub\Deudas\WebApi\WSDeudas\Deudas.DAL\bin\Debug\MySql.Data.EntityFramework.xml
 C:\Users\mario.dominguez\Documents\GitHub\Deudas\WebApi\WSDeudas\Deudas.DAL\obj\Debug\Deudas.DAL.dll
 C:\Users\mario.dominguez\Documents\GitHub\Deudas\WebApi\WSDeudas\Deudas.DAL\obj\Debug\Deudas.DAL.pdb

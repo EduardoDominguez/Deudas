@@ -1,0 +1,4 @@
+C:\Users\mario.dominguez\Documents\GitHub\Deudas\WebApi\WSDeudas\Deudas.DAL\bin\Release\Deudas.DAL.dll
+C:\Users\mario.dominguez\Documents\GitHub\Deudas\WebApi\WSDeudas\Deudas.DAL\bin\Release\Deudas.DAL.pdb
+C:\Users\mario.dominguez\Documents\GitHub\Deudas\WebApi\WSDeudas\Deudas.DAL\obj\Release\Deudas.DAL.dll
+C:\Users\mario.dominguez\Documents\GitHub\Deudas\WebApi\WSDeudas\Deudas.DAL\obj\Release\Deudas.DAL.pdb
