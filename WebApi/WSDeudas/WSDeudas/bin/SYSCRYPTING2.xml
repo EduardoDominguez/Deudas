@@ -1,0 +1,73 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+SYSCRYPTING2
+</name>
+</assembly>
+<members>
+<member name="M:SYSCRYPTING2.clsCrypting.GetMd5Hash(System.String)">
+	<summary>
+ Genera un Hash en formato MD5.
+ </summary>
+	<param name="pSourceText">Texto Origen.</param>
+	<returns>Un String con el Hash en formato MD5</returns>
+</member><member name="M:SYSCRYPTING2.clsCrypting.Crypt(System.String,System.String)">
+	<summary>
+ Encripta una cadena origen, combinándola con una cadena clave.
+ </summary>
+	<param name="pSource">Cadena Origen.</param>
+	<param name="pKey">Cadena Clave</param>
+	<returns>Un String con la encriptación de la Cadena Origen.</returns>
+	<remarks>Este método usa el valor hexadecimal del resultado de aplicar un XOR ente la cadena
+ origen y la clave.
+ </remarks>
+</member><member name="M:SYSCRYPTING2.clsCrypting.DeCrypt(System.String,System.String)">
+	<summary>
+ Desencripta una cadena origen, combinándola con una cadena clave.
+ </summary>
+	<param name="pSource">Cadena Origen.</param>
+	<param name="pKey">Cadena Clave</param>
+	<returns>Un String con la desencriptación de la Cadena Origen.</returns>
+	<remarks>Este método usa el valor hexadecimal del resultado de aplicar un XOR ente la cadena
+ origen y la clave.
+ </remarks>
+</member><member name="M:SYSCRYPTING2.clsCrypting.Hex2Dez(System.String)">
+	<summary>
+ Convierte un valor hexadecimal a decimal.
+ </summary>
+	<param name="pSource">Cadena Origen que contiene el valor hexadecimal</param>
+	<returns>Un integer que contiene el valor decimal equivalente de la cadena origen</returns>
+</member><member name="M:SYSCRYPTING2.clsCrypting.GetKeyStr(System.String)">
+	<summary>
+ Convierte una Cadena Clave de un formato hexadecimal a uno decimal.
+ </summary>
+	<param name="pSource">Cadena Origen que contiene los valores hexadecimales.</param>
+	<returns>Un String que contiene el equivalente decimal de la cadena origen</returns>
+</member><member name="M:SYSCRYPTING2.clsCrypting.GetKeyHex(System.String)">
+	<summary>
+ Convierte una Cadena Origen de caracteres a un formato hexadecimal.
+ </summary>
+	<param name="pSource">Cadena Origen que contiene los caracteres a convertir.</param>
+	<returns>Un String que contiene el equivalente hexadecimal de la cadena origen</returns>
+</member><member name="T:SYSCRYPTING2.clsCrypting">
+	<summary>
+ Esta clase contiene funcionalidad general de encriptación y decriptación de cadenas 
+ de caracteres.
+ </summary>
+</member><member name="P:SYSCRYPTING2.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:SYSCRYPTING2.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:SYSCRYPTING2.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

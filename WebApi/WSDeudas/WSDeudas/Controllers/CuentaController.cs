@@ -10,9 +10,6 @@ using WSDeudas.Models.Request;
 using WSDeudas.Models.Response;
 using log4net;
 
-/*using mx.gob.Leon.DataContext;
-using Leon.Domains.Oracle.bl;
-using Leon.Domains.Oracle.bo;*/
 
 namespace WSNomina.Controllers
 {

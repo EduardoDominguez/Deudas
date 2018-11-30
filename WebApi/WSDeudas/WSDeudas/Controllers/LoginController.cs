@@ -11,7 +11,13 @@ using System.Threading;
 using System.Web.Http;
 using WSDeudas.Models.Request;
 using WSDeudas.Models.Response;
+using WSDeudas.Exceptions;
+using log4net;
+
 using System.Configuration;
+using System.Threading.Tasks;
+using Deudas.BL;
+using Deudas.DAL.Modelo;
 
 namespace WSDeudas.Controllers
 {
@@ -19,12 +25,14 @@ namespace WSDeudas.Controllers
     [RoutePrefix("api/Login")]
     public class LoginController : ApiController
     {
+        private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         [HttpPost]
         [Route("Autenticar")]
-        public IHttpActionResult Autenticar([FromBody] LoginRequest login)
+        public IHttpActionResult Autenticar([FromBody] TokenRequest login)
         {
-            var loginResponse = new LoginResponse { };
-            LoginRequest loginrequest = new LoginRequest { };
+            var tokenResponse = new TokenResponse { };
+            TokenRequest loginrequest = new TokenRequest { };
             loginrequest.Username = login.Username.ToLower();
             loginrequest.Password = login.Password;
 
@@ -45,10 +53,56 @@ namespace WSDeudas.Controllers
             else
             {
                 // if credentials are not valid send unauthorized status code in response
-                loginResponse.responseMsg.StatusCode = HttpStatusCode.Unauthorized;
-                response = ResponseMessage(loginResponse.responseMsg);
+                tokenResponse.responseMsg.StatusCode = HttpStatusCode.Unauthorized;
+                response = ResponseMessage(tokenResponse.responseMsg);
                 return response;
             }
+        }
+
+
+        [HttpPost]
+        [Route("")]
+        public HttpResponseMessage Login([FromBody] LoginRequest pLoginRequest)
+        {
+            var respuesta = new LoginResponse { };
+            var strMetodo = "WSDeudas - Login ";
+            string sid = Guid.NewGuid().ToString();
+            
+            try
+            {
+                var acceso = new usuarios();
+                acceso.nick = pLoginRequest.Username;
+                acceso.contrasena = pLoginRequest.Password;
+                var pNegocio = new LoginNegocio();
+                var usuario = pNegocio.Login(acceso);
+
+                if (usuario != null)
+                    respuesta.Exito = true;
+                else
+                {
+                    respuesta.CodigoError = "El usuario o contraseña son incorrectos.";
+                }
+            }
+            catch (ServiceException Ex)
+            {
+                respuesta.CodigoError = Ex.Codigo.ToString();
+                respuesta.MensajeError = Ex.Message;
+            }
+            catch (Exception Ex)
+            {
+                string strErrGUI = Guid.NewGuid().ToString();
+                string strMensaje = "Error Interno del Servicio [GUID: " + strErrGUI + "].";
+                log.Error("[" + strMetodo + "]" + "[SID:" + sid + "]" + strMensaje, Ex);
+
+                respuesta.CodigoError = "10001";
+                respuesta.MensajeError = "ERROR INTERNO DEL SERVICIO [" + strErrGUI + "]";
+            }
+            finally
+            {
+                
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, respuesta);
         }
         
         [HttpGet]

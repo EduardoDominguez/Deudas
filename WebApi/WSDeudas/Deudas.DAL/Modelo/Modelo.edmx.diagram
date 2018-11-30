@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a7b64e1c57314882b91ef721d8f3c8d0" Name="Diagram1">
+        <EntityTypeShape EntityType="DeudasModel.abonos_deuda" Width="1.5" PointX="5.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeudasModel.cargos_deudas" Width="1.5" PointX="8.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeudasModel.detalle_deuda" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeudasModel.deudas" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeudasModel.gastos" Width="1.5" PointX="3.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeudasModel.ingresos" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeudasModel.usuarios" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <AssociationConnector Association="DeudasModel.fk_deudaabono" ManuallyRouted="false" />
+        <AssociationConnector Association="DeudasModel.fk_ingresoabono" ManuallyRouted="false" />
+        <AssociationConnector Association="DeudasModel.fk_usuarioabono" ManuallyRouted="false" />
+        <AssociationConnector Association="DeudasModel.fk_cargodeuda" ManuallyRouted="false" />
+        <AssociationConnector Association="DeudasModel.fk_cargousuario" ManuallyRouted="false" />
+        <AssociationConnector Association="DeudasModel.fk_deudadetalle" ManuallyRouted="false" />
+        <AssociationConnector Association="DeudasModel.fk_Usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="DeudasModel.usuario_deudas" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
