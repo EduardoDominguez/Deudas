@@ -63,14 +63,17 @@
     <Property Name="cantidad_inicial" Type="decimal" Precision="18" Scale="0" />
     <Property Name="cantidad_actual" Type="decimal" Precision="18" Scale="0" />
     <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="60" />
   </EntityType>
-  <EntityType Name="usuario_deudas">
+  <EntityType Name="sysdiagrams">
     <Key>
-      <PropertyRef Name="iddeuda" />
-      <PropertyRef Name="idusuario" />
+      <PropertyRef Name="diagram_id" />
     </Key>
-    <Property Name="iddeuda" Type="int" Nullable="false" />
-    <Property Name="idusuario" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="usuarios">
     <Key>
@@ -87,30 +90,6 @@
     <Property Name="nick" Type="varchar" MaxLength="45" Nullable="false" />
     <Property Name="contrasena" Type="varchar" MaxLength="45" Nullable="false" />
   </EntityType>
-  <Association Name="FK__usuario_d__iddeu__267ABA7A">
-    <End Role="deudas" Type="Self.deudas" Multiplicity="1" />
-    <End Role="usuario_deudas" Type="Self.usuario_deudas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="deudas">
-        <PropertyRef Name="iddeuda" />
-      </Principal>
-      <Dependent Role="usuario_deudas">
-        <PropertyRef Name="iddeuda" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__usuario_d__idusu__276EDEB3">
-    <End Role="usuarios" Type="Self.usuarios" Multiplicity="1" />
-    <End Role="usuario_deudas" Type="Self.usuario_deudas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="usuarios">
-        <PropertyRef Name="idusuario" />
-      </Principal>
-      <Dependent Role="usuario_deudas">
-        <PropertyRef Name="idusuario" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="fk_cargodeuda">
     <End Role="deudas" Type="Self.deudas" Multiplicity="0..1" />
     <End Role="cargos_deudas" Type="Self.cargos_deudas" Multiplicity="*" />
@@ -202,16 +181,8 @@
     <EntitySet Name="deudas" EntityType="Self.deudas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="gastos" EntityType="Self.gastos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ingresos" EntityType="Self.ingresos" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="usuario_deudas" EntityType="Self.usuario_deudas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__usuario_d__iddeu__267ABA7A" Association="Self.FK__usuario_d__iddeu__267ABA7A">
-      <End Role="deudas" EntitySet="deudas" />
-      <End Role="usuario_deudas" EntitySet="usuario_deudas" />
-    </AssociationSet>
-    <AssociationSet Name="FK__usuario_d__idusu__276EDEB3" Association="Self.FK__usuario_d__idusu__276EDEB3">
-      <End Role="usuarios" EntitySet="usuarios" />
-      <End Role="usuario_deudas" EntitySet="usuario_deudas" />
-    </AssociationSet>
     <AssociationSet Name="fk_cargodeuda" Association="Self.fk_cargodeuda">
       <End Role="deudas" EntitySet="deudas" />
       <End Role="cargos_deudas" EntitySet="cargos_deudas" />

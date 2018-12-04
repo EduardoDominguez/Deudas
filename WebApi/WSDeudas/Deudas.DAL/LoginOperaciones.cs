@@ -9,11 +9,11 @@ namespace Deudas.DAL
 {
     public class LoginOperaciones
     {
-        private DeudasEntities context;
+        private deudasEntities context;
 
         public usuarios Login(usuarios pUsuario)
         {
-            using (context = new DeudasEntities())
+            using (context = new deudasEntities())
             {
                 //var blogs = context.usuarios.SqlQuery("SELECT * FROM dbo.Blogs").ToList();
                 var usuario = (from s in context.usuarios

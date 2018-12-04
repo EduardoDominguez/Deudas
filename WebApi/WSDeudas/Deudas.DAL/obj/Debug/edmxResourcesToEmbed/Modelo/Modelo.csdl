@@ -50,21 +50,6 @@
     <NavigationProperty Name="cargos_deudas" Relationship="Self.fk_cargodeuda" FromRole="deudas" ToRole="cargos_deudas" />
     <NavigationProperty Name="detalle_deuda" Relationship="Self.fk_deudadetalle" FromRole="deudas" ToRole="detalle_deuda" />
     <NavigationProperty Name="usuarios" Relationship="Self.fk_Usuarios" FromRole="deudas" ToRole="usuarios" />
-    <NavigationProperty Name="usuarios1" Relationship="Self.usuario_deudas" FromRole="deudas" ToRole="usuarios" />
-  </EntityType>
-  <EntityType Name="gastos">
-    <Key>
-      <PropertyRef Name="idgasto" />
-    </Key>
-    <Property Name="idgasto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="estatus" Type="Int32" Nullable="false" />
-    <Property Name="dia_corte" Type="Int32" Nullable="false" />
-    <Property Name="dia_limite_pago" Type="Int32" Nullable="false" />
-    <Property Name="fechaalta" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="horaalta" Type="Time" Nullable="false" Precision="7" />
-    <Property Name="idusuario" Type="Int32" Nullable="false" />
-    <Property Name="total" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
   </EntityType>
   <EntityType Name="ingresos">
     <Key>
@@ -75,6 +60,17 @@
     <Property Name="cantidad_actual" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
     <NavigationProperty Name="abonos_deuda" Relationship="Self.fk_ingresoabono" FromRole="ingresos" ToRole="abonos_deuda" />
+    <Property Name="nombre" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="usuarios">
     <Key>
@@ -93,7 +89,6 @@
     <NavigationProperty Name="abonos_deuda" Relationship="Self.fk_usuarioabono" FromRole="usuarios" ToRole="abonos_deuda" />
     <NavigationProperty Name="cargos_deudas" Relationship="Self.fk_cargousuario" FromRole="usuarios" ToRole="cargos_deudas" />
     <NavigationProperty Name="deudas" Relationship="Self.fk_Usuarios" FromRole="usuarios" ToRole="deudas" />
-    <NavigationProperty Name="deudas1" Relationship="Self.usuario_deudas" FromRole="usuarios" ToRole="deudas" />
   </EntityType>
   <Association Name="fk_deudaabono">
     <End Role="deudas" Type="Self.deudas" Multiplicity="1" />
@@ -179,17 +174,13 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="usuario_deudas">
-    <End Role="deudas" Type="Self.deudas" Multiplicity="*" />
-    <End Role="usuarios" Type="Self.usuarios" Multiplicity="*" />
-  </Association>
-  <EntityContainer Name="DeudasEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="deudasEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="abonos_deuda" EntityType="Self.abonos_deuda" />
     <EntitySet Name="cargos_deudas" EntityType="Self.cargos_deudas" />
     <EntitySet Name="detalle_deuda" EntityType="Self.detalle_deuda" />
     <EntitySet Name="deudas" EntityType="Self.deudas" />
-    <EntitySet Name="gastos" EntityType="Self.gastos" />
     <EntitySet Name="ingresos" EntityType="Self.ingresos" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="usuarios" EntityType="Self.usuarios" />
     <AssociationSet Name="fk_deudaabono" Association="Self.fk_deudaabono">
       <End Role="deudas" EntitySet="deudas" />
@@ -219,9 +210,20 @@
       <End Role="usuarios" EntitySet="usuarios" />
       <End Role="deudas" EntitySet="deudas" />
     </AssociationSet>
-    <AssociationSet Name="usuario_deudas" Association="Self.usuario_deudas">
-      <End Role="deudas" EntitySet="deudas" />
-      <End Role="usuarios" EntitySet="usuarios" />
-    </AssociationSet>
+    <EntitySet Name="gastos" EntityType="DeudasModel.gastos" />
   </EntityContainer>
+  <EntityType Name="gastos">
+    <Key>
+      <PropertyRef Name="idgasto" />
+    </Key>
+    <Property Name="idgasto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="estatus" Type="Int32" Nullable="false" />
+    <Property Name="dia_corte" Type="Int32" Nullable="false" />
+    <Property Name="dia_limite_pago" Type="Int32" Nullable="false" />
+    <Property Name="fechaalta" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="horaalta" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="idusuario" Type="Int32" Nullable="false" />
+    <Property Name="total" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
+  </EntityType>
 </Schema>

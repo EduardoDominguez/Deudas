@@ -19,7 +19,6 @@ namespace Deudas.DAL.Modelo
         {
             this.abonos_deuda = new HashSet<abonos_deuda>();
             this.cargos_deudas = new HashSet<cargos_deudas>();
-            this.usuarios1 = new HashSet<usuarios>();
         }
     
         public int iddeuda { get; set; }
@@ -37,7 +36,5 @@ namespace Deudas.DAL.Modelo
         public virtual ICollection<cargos_deudas> cargos_deudas { get; set; }
         public virtual detalle_deuda detalle_deuda { get; set; }
         public virtual usuarios usuarios { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<usuarios> usuarios1 { get; set; }
     }
 }

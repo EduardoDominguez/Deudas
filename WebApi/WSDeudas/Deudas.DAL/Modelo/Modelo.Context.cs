@@ -13,10 +13,10 @@ namespace Deudas.DAL.Modelo
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DeudasEntities : DbContext
+    public partial class deudasEntities : DbContext
     {
-        public DeudasEntities()
-            : base("name=DeudasEntities")
+        public deudasEntities()
+            : base("name=deudasEntities")
         {
         }
     
@@ -29,8 +29,9 @@ namespace Deudas.DAL.Modelo
         public virtual DbSet<cargos_deudas> cargos_deudas { get; set; }
         public virtual DbSet<detalle_deuda> detalle_deuda { get; set; }
         public virtual DbSet<deudas> deudas { get; set; }
-        public virtual DbSet<gastos> gastos { get; set; }
         public virtual DbSet<ingresos> ingresos { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<usuarios> usuarios { get; set; }
+        public virtual DbSet<gastos> gastos { get; set; }
     }
 }

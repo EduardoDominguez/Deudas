@@ -7,7 +7,7 @@ namespace WSDeudas.Models
 {
     public class Respuesta
     {
-        public string MensajeError{ get; set; }
+        public string Mensaje{ get; set; }
         public bool Exito { get; set; }
         public string CodigoError { get; set; }
 
@@ -18,7 +18,7 @@ namespace WSDeudas.Models
 
         public void Inicializar()
         {
-            this.MensajeError = string.Empty;
+            this.Mensaje = string.Empty;
             this.Exito = false;
             this.CodigoError = string.Empty;
         }

@@ -1,0 +1,3 @@
+﻿Archivo de modelo generado: Modelo.edmx.
+La carga de los metadatos desde la base de datos tardó 00:00:00.7607371.
+La generación del modelo tardó 00:00:00.6067596.

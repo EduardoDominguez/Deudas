@@ -24,6 +24,7 @@ namespace Deudas.DAL.Modelo
         public Nullable<decimal> cantidad_inicial { get; set; }
         public Nullable<decimal> cantidad_actual { get; set; }
         public System.DateTime fecha { get; set; }
+        public string nombre { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<abonos_deuda> abonos_deuda { get; set; }
