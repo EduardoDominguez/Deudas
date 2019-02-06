@@ -1,5 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DeudasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="deudasEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="abonos_deuda" EntityType="DeudasModel.abonos_deuda" />
+    <EntitySet Name="cargos_deudas" EntityType="DeudasModel.cargos_deudas" />
+    <EntitySet Name="detalle_deuda" EntityType="DeudasModel.detalle_deuda" />
+    <EntitySet Name="deudas" EntityType="DeudasModel.deudas" />
+    <EntitySet Name="gastos" EntityType="DeudasModel.gastos" />
+    <EntitySet Name="ingresos" EntityType="DeudasModel.ingresos" />
+    <EntitySet Name="usuarios" EntityType="DeudasModel.usuarios" />
+    <AssociationSet Name="fk_deudaabono" Association="DeudasModel.fk_deudaabono">
+      <End Role="deudas" EntitySet="deudas" />
+      <End Role="abonos_deuda" EntitySet="abonos_deuda" />
+    </AssociationSet>
+    <AssociationSet Name="fk_ingresoabono" Association="DeudasModel.fk_ingresoabono">
+      <End Role="ingresos" EntitySet="ingresos" />
+      <End Role="abonos_deuda" EntitySet="abonos_deuda" />
+    </AssociationSet>
+    <AssociationSet Name="fk_usuarioabono" Association="DeudasModel.fk_usuarioabono">
+      <End Role="usuarios" EntitySet="usuarios" />
+      <End Role="abonos_deuda" EntitySet="abonos_deuda" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cargodeuda" Association="DeudasModel.fk_cargodeuda">
+      <End Role="deudas" EntitySet="deudas" />
+      <End Role="cargos_deudas" EntitySet="cargos_deudas" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cargousuario" Association="DeudasModel.fk_cargousuario">
+      <End Role="usuarios" EntitySet="usuarios" />
+      <End Role="cargos_deudas" EntitySet="cargos_deudas" />
+    </AssociationSet>
+    <AssociationSet Name="fk_deudadetalle" Association="DeudasModel.fk_deudadetalle">
+      <End Role="deudas" EntitySet="deudas" />
+      <End Role="detalle_deuda" EntitySet="detalle_deuda" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Usuarios" Association="DeudasModel.fk_Usuarios">
+      <End Role="usuarios" EntitySet="usuarios" />
+      <End Role="deudas" EntitySet="deudas" />
+    </AssociationSet>
+    <FunctionImport Name="spAddEditAbono">
+      <Parameter Name="Cantidad" Mode="In" Type="Decimal" />
+      <Parameter Name="IdDeuda" Mode="In" Type="Int32" />
+      <Parameter Name="IdIngreso" Mode="In" Type="Int32" />
+      <Parameter Name="IdUsuario" Mode="In" Type="Int32" />
+      <Parameter Name="RET_NUMEROERROR" Mode="InOut" Type="Int32" />
+      <Parameter Name="RET_MENSAJEERROR" Mode="InOut" Type="String" />
+      <Parameter Name="RET_VALORDEVUELTO" Mode="InOut" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
   <EntityType Name="abonos_deuda">
     <Key>
       <PropertyRef Name="idabono" />
@@ -8,11 +54,11 @@
     <Property Name="iddeuda" Type="Int32" Nullable="false" />
     <Property Name="idusuario" Type="Int32" Nullable="false" />
     <Property Name="idingreso" Type="Int32" />
-    <Property Name="cantidad" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="cantidad" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
     <Property Name="fechahora" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="deudas" Relationship="Self.fk_deudaabono" FromRole="abonos_deuda" ToRole="deudas" />
-    <NavigationProperty Name="ingresos" Relationship="Self.fk_ingresoabono" FromRole="abonos_deuda" ToRole="ingresos" />
-    <NavigationProperty Name="usuarios" Relationship="Self.fk_usuarioabono" FromRole="abonos_deuda" ToRole="usuarios" />
+    <NavigationProperty Name="deudas" Relationship="DeudasModel.fk_deudaabono" FromRole="abonos_deuda" ToRole="deudas" />
+    <NavigationProperty Name="ingresos" Relationship="DeudasModel.fk_ingresoabono" FromRole="abonos_deuda" ToRole="ingresos" />
+    <NavigationProperty Name="usuarios" Relationship="DeudasModel.fk_usuarioabono" FromRole="abonos_deuda" ToRole="usuarios" />
   </EntityType>
   <EntityType Name="cargos_deudas">
     <Key>
@@ -23,195 +69,34 @@
     <Property Name="idusuario" Type="Int32" Nullable="false" />
     <Property Name="cantidad" Type="Decimal" Precision="16" Scale="2" />
     <Property Name="fechahoracargo" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="deudas" Relationship="Self.fk_cargodeuda" FromRole="cargos_deudas" ToRole="deudas" />
-    <NavigationProperty Name="usuarios" Relationship="Self.fk_cargousuario" FromRole="cargos_deudas" ToRole="usuarios" />
+    <NavigationProperty Name="deudas" Relationship="DeudasModel.fk_cargodeuda" FromRole="cargos_deudas" ToRole="deudas" />
+    <NavigationProperty Name="usuarios" Relationship="DeudasModel.fk_cargousuario" FromRole="cargos_deudas" ToRole="usuarios" />
   </EntityType>
   <EntityType Name="detalle_deuda">
     <Key>
       <PropertyRef Name="iddeuda" />
     </Key>
     <Property Name="iddeuda" Type="Int32" Nullable="false" />
-    <Property Name="cantidad" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
-    <NavigationProperty Name="deudas" Relationship="Self.fk_deudadetalle" FromRole="detalle_deuda" ToRole="deudas" />
+    <Property Name="cantidad" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
+    <NavigationProperty Name="deudas" Relationship="DeudasModel.fk_deudadetalle" FromRole="detalle_deuda" ToRole="deudas" />
   </EntityType>
   <EntityType Name="deudas">
     <Key>
       <PropertyRef Name="iddeuda" />
     </Key>
-    <Property Name="iddeuda" Type="Int32" Nullable="false" />
-    <Property Name="nombreDeuda" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="iddeuda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="estatus" Type="Byte" Nullable="false" />
     <Property Name="dia_corte" Type="Int16" />
     <Property Name="dia_limite_pago" Type="Int32" />
     <Property Name="fechaalta" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="horaalta" Type="Time" Nullable="false" Precision="7" />
     <Property Name="idusuario" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="abonos_deuda" Relationship="Self.fk_deudaabono" FromRole="deudas" ToRole="abonos_deuda" />
-    <NavigationProperty Name="cargos_deudas" Relationship="Self.fk_cargodeuda" FromRole="deudas" ToRole="cargos_deudas" />
-    <NavigationProperty Name="detalle_deuda" Relationship="Self.fk_deudadetalle" FromRole="deudas" ToRole="detalle_deuda" />
-    <NavigationProperty Name="usuarios" Relationship="Self.fk_Usuarios" FromRole="deudas" ToRole="usuarios" />
+    <NavigationProperty Name="abonos_deuda" Relationship="DeudasModel.fk_deudaabono" FromRole="deudas" ToRole="abonos_deuda" />
+    <NavigationProperty Name="cargos_deudas" Relationship="DeudasModel.fk_cargodeuda" FromRole="deudas" ToRole="cargos_deudas" />
+    <NavigationProperty Name="detalle_deuda" Relationship="DeudasModel.fk_deudadetalle" FromRole="deudas" ToRole="detalle_deuda" />
+    <NavigationProperty Name="usuarios" Relationship="DeudasModel.fk_Usuarios" FromRole="deudas" ToRole="usuarios" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityType Name="ingresos">
-    <Key>
-      <PropertyRef Name="idingreso" />
-    </Key>
-    <Property Name="idingreso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="cantidad_inicial" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="cantidad_actual" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
-    <NavigationProperty Name="abonos_deuda" Relationship="Self.fk_ingresoabono" FromRole="ingresos" ToRole="abonos_deuda" />
-    <Property Name="nombre" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
-  <EntityType Name="usuarios">
-    <Key>
-      <PropertyRef Name="idusuario" />
-    </Key>
-    <Property Name="idusuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="appaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="apmaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="idusuarioregistro" Type="Int32" />
-    <Property Name="horaregistro" Type="Time" Precision="7" />
-    <Property Name="fecharegistro" Type="DateTime" Precision="0" />
-    <Property Name="correo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="nick" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="contrasena" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="abonos_deuda" Relationship="Self.fk_usuarioabono" FromRole="usuarios" ToRole="abonos_deuda" />
-    <NavigationProperty Name="cargos_deudas" Relationship="Self.fk_cargousuario" FromRole="usuarios" ToRole="cargos_deudas" />
-    <NavigationProperty Name="deudas" Relationship="Self.fk_Usuarios" FromRole="usuarios" ToRole="deudas" />
-  </EntityType>
-  <Association Name="fk_deudaabono">
-    <End Role="deudas" Type="Self.deudas" Multiplicity="1" />
-    <End Role="abonos_deuda" Type="Self.abonos_deuda" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="deudas">
-        <PropertyRef Name="iddeuda" />
-      </Principal>
-      <Dependent Role="abonos_deuda">
-        <PropertyRef Name="iddeuda" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_ingresoabono">
-    <End Role="ingresos" Type="Self.ingresos" Multiplicity="0..1" />
-    <End Role="abonos_deuda" Type="Self.abonos_deuda" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ingresos">
-        <PropertyRef Name="idingreso" />
-      </Principal>
-      <Dependent Role="abonos_deuda">
-        <PropertyRef Name="idingreso" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_usuarioabono">
-    <End Role="usuarios" Type="Self.usuarios" Multiplicity="1" />
-    <End Role="abonos_deuda" Type="Self.abonos_deuda" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="usuarios">
-        <PropertyRef Name="idusuario" />
-      </Principal>
-      <Dependent Role="abonos_deuda">
-        <PropertyRef Name="idusuario" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_cargodeuda">
-    <End Role="deudas" Type="Self.deudas" Multiplicity="0..1" />
-    <End Role="cargos_deudas" Type="Self.cargos_deudas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="deudas">
-        <PropertyRef Name="iddeuda" />
-      </Principal>
-      <Dependent Role="cargos_deudas">
-        <PropertyRef Name="iddeuda" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_cargousuario">
-    <End Role="usuarios" Type="Self.usuarios" Multiplicity="1" />
-    <End Role="cargos_deudas" Type="Self.cargos_deudas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="usuarios">
-        <PropertyRef Name="idusuario" />
-      </Principal>
-      <Dependent Role="cargos_deudas">
-        <PropertyRef Name="idusuario" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_deudadetalle">
-    <End Role="deudas" Type="Self.deudas" Multiplicity="1" />
-    <End Role="detalle_deuda" Type="Self.detalle_deuda" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="deudas">
-        <PropertyRef Name="iddeuda" />
-      </Principal>
-      <Dependent Role="detalle_deuda">
-        <PropertyRef Name="iddeuda" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_Usuarios">
-    <End Role="usuarios" Type="Self.usuarios" Multiplicity="1" />
-    <End Role="deudas" Type="Self.deudas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="usuarios">
-        <PropertyRef Name="idusuario" />
-      </Principal>
-      <Dependent Role="deudas">
-        <PropertyRef Name="idusuario" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityContainer Name="deudasEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="abonos_deuda" EntityType="Self.abonos_deuda" />
-    <EntitySet Name="cargos_deudas" EntityType="Self.cargos_deudas" />
-    <EntitySet Name="detalle_deuda" EntityType="Self.detalle_deuda" />
-    <EntitySet Name="deudas" EntityType="Self.deudas" />
-    <EntitySet Name="ingresos" EntityType="Self.ingresos" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-    <EntitySet Name="usuarios" EntityType="Self.usuarios" />
-    <AssociationSet Name="fk_deudaabono" Association="Self.fk_deudaabono">
-      <End Role="deudas" EntitySet="deudas" />
-      <End Role="abonos_deuda" EntitySet="abonos_deuda" />
-    </AssociationSet>
-    <AssociationSet Name="fk_ingresoabono" Association="Self.fk_ingresoabono">
-      <End Role="ingresos" EntitySet="ingresos" />
-      <End Role="abonos_deuda" EntitySet="abonos_deuda" />
-    </AssociationSet>
-    <AssociationSet Name="fk_usuarioabono" Association="Self.fk_usuarioabono">
-      <End Role="usuarios" EntitySet="usuarios" />
-      <End Role="abonos_deuda" EntitySet="abonos_deuda" />
-    </AssociationSet>
-    <AssociationSet Name="fk_cargodeuda" Association="Self.fk_cargodeuda">
-      <End Role="deudas" EntitySet="deudas" />
-      <End Role="cargos_deudas" EntitySet="cargos_deudas" />
-    </AssociationSet>
-    <AssociationSet Name="fk_cargousuario" Association="Self.fk_cargousuario">
-      <End Role="usuarios" EntitySet="usuarios" />
-      <End Role="cargos_deudas" EntitySet="cargos_deudas" />
-    </AssociationSet>
-    <AssociationSet Name="fk_deudadetalle" Association="Self.fk_deudadetalle">
-      <End Role="deudas" EntitySet="deudas" />
-      <End Role="detalle_deuda" EntitySet="detalle_deuda" />
-    </AssociationSet>
-    <AssociationSet Name="fk_Usuarios" Association="Self.fk_Usuarios">
-      <End Role="usuarios" EntitySet="usuarios" />
-      <End Role="deudas" EntitySet="deudas" />
-    </AssociationSet>
-    <EntitySet Name="gastos" EntityType="DeudasModel.gastos" />
-  </EntityContainer>
   <EntityType Name="gastos">
     <Key>
       <PropertyRef Name="idgasto" />
@@ -226,4 +111,118 @@
     <Property Name="idusuario" Type="Int32" Nullable="false" />
     <Property Name="total" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
   </EntityType>
+  <EntityType Name="ingresos">
+    <Key>
+      <PropertyRef Name="idingreso" />
+    </Key>
+    <Property Name="idingreso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cantidad_inicial" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="cantidad_actual" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="abonos_deuda" Relationship="DeudasModel.fk_ingresoabono" FromRole="ingresos" ToRole="abonos_deuda" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idusuario" Type="Int32" />
+  </EntityType>
+  <EntityType Name="usuarios">
+    <Key>
+      <PropertyRef Name="idusuario" />
+    </Key>
+    <Property Name="idusuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="appaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="apmaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idusuarioregistro" Type="Int32" />
+    <Property Name="horaregistro" Type="Time" Precision="7" />
+    <Property Name="fecharegistro" Type="DateTime" Precision="0" />
+    <Property Name="correo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="nick" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="contrasena" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="abonos_deuda" Relationship="DeudasModel.fk_usuarioabono" FromRole="usuarios" ToRole="abonos_deuda" />
+    <NavigationProperty Name="cargos_deudas" Relationship="DeudasModel.fk_cargousuario" FromRole="usuarios" ToRole="cargos_deudas" />
+    <NavigationProperty Name="deudas" Relationship="DeudasModel.fk_Usuarios" FromRole="usuarios" ToRole="deudas" />
+  </EntityType>
+  <Association Name="fk_deudaabono">
+    <End Type="DeudasModel.deudas" Role="deudas" Multiplicity="1" />
+    <End Type="DeudasModel.abonos_deuda" Role="abonos_deuda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="deudas">
+        <PropertyRef Name="iddeuda" />
+      </Principal>
+      <Dependent Role="abonos_deuda">
+        <PropertyRef Name="iddeuda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_ingresoabono">
+    <End Type="DeudasModel.ingresos" Role="ingresos" Multiplicity="0..1" />
+    <End Type="DeudasModel.abonos_deuda" Role="abonos_deuda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ingresos">
+        <PropertyRef Name="idingreso" />
+      </Principal>
+      <Dependent Role="abonos_deuda">
+        <PropertyRef Name="idingreso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_usuarioabono">
+    <End Type="DeudasModel.usuarios" Role="usuarios" Multiplicity="1" />
+    <End Type="DeudasModel.abonos_deuda" Role="abonos_deuda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuarios">
+        <PropertyRef Name="idusuario" />
+      </Principal>
+      <Dependent Role="abonos_deuda">
+        <PropertyRef Name="idusuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cargodeuda">
+    <End Type="DeudasModel.deudas" Role="deudas" Multiplicity="0..1" />
+    <End Type="DeudasModel.cargos_deudas" Role="cargos_deudas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="deudas">
+        <PropertyRef Name="iddeuda" />
+      </Principal>
+      <Dependent Role="cargos_deudas">
+        <PropertyRef Name="iddeuda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cargousuario">
+    <End Type="DeudasModel.usuarios" Role="usuarios" Multiplicity="1" />
+    <End Type="DeudasModel.cargos_deudas" Role="cargos_deudas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuarios">
+        <PropertyRef Name="idusuario" />
+      </Principal>
+      <Dependent Role="cargos_deudas">
+        <PropertyRef Name="idusuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_deudadetalle">
+    <End Type="DeudasModel.deudas" Role="deudas" Multiplicity="1" />
+    <End Type="DeudasModel.detalle_deuda" Role="detalle_deuda" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="deudas">
+        <PropertyRef Name="iddeuda" />
+      </Principal>
+      <Dependent Role="detalle_deuda">
+        <PropertyRef Name="iddeuda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Usuarios">
+    <End Type="DeudasModel.usuarios" Role="usuarios" Multiplicity="1" />
+    <End Type="DeudasModel.deudas" Role="deudas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuarios">
+        <PropertyRef Name="idusuario" />
+      </Principal>
+      <Dependent Role="deudas">
+        <PropertyRef Name="idusuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

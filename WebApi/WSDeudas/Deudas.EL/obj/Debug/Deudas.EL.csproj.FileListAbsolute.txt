@@ -2,3 +2,9 @@ C:\Users\mario.dominguez\Documents\GitHub\Deudas\WebApi\WSDeudas\Deudas.EL\bin\D
 C:\Users\mario.dominguez\Documents\GitHub\Deudas\WebApi\WSDeudas\Deudas.EL\bin\Debug\Deudas.EL.pdb
 C:\Users\mario.dominguez\Documents\GitHub\Deudas\WebApi\WSDeudas\Deudas.EL\obj\Debug\Deudas.EL.dll
 C:\Users\mario.dominguez\Documents\GitHub\Deudas\WebApi\WSDeudas\Deudas.EL\obj\Debug\Deudas.EL.pdb
+C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.EL\bin\Debug\Deudas.EL.dll
+C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.EL\bin\Debug\Deudas.EL.pdb
+C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.EL\obj\Debug\Deudas.EL.csprojAssemblyReference.cache
+C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.EL\obj\Debug\Deudas.EL.csproj.CoreCompileInputs.cache
+C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.EL\obj\Debug\Deudas.EL.dll
+C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.EL\obj\Debug\Deudas.EL.pdb

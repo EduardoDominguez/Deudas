@@ -1,0 +1,57 @@
+<div class="container d-flex justify-content-center">
+  
+    <div class="card " style="width: 400px">
+        <img src="https://www.lavanguardia.com/r/GODO/LV/p5/WebSite/2018/07/25/Recortada/img_msanoja_20160801-194152_imagenes_lv_getty_istock_77607221_small-k0hH--656x437@LaVanguardia-Web.jpg" 
+        class="card-img-top" alt="Imagen de perfil">
+        <div class="card-body">
+          <h5 class="card-title">{{storageService.getCurrentSession().user.full_name}}</h5>
+          <div class="card-text">
+              <label class="sr-only" for="inlineFormInputGroup">Nombre de usuario</label>
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fas fa-user-alt"></i></div>
+                </div>
+                <input type="text" disabled class="form-control" placeholder="correo" value="{{storageService.getCurrentSession().user.username}}">
+              </div>
+          </div>
+          <div class="card-text">
+              <label class="sr-only" for="inlineFormInputGroup">Correo</label>
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fas fa-envelope"></i></div>
+                </div>
+                <input type="text" disabled class="form-control" placeholder="correo" value="{{storageService.getCurrentSession().user.email}}">
+              </div>
+          </div>
+          <div class="card-text">
+              <label class="sr-only" for="inlineFormInputGroup">Clave UR</label>
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fas fa-sitemap"></i></div>
+                </div>
+                <input type="text" disabled class="form-control" placeholder="Clave UR" value="{{storageService.getCurrentSession().user.cl_ur}}">
+              </div>
+          </div>
+          <div class="card-text">
+              <label class="sr-only" for="inlineFormInputGroup">Nombre UR</label>
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fas fa-sitemap"></i></div>
+                </div>
+                <input type="text" disabled class="form-control" placeholder="clave ur" value="{{storageService.getCurrentSession().user.nb_ur}}">
+              </div>
+          </div>
+          <div class="card-text">
+              <label class="sr-only" for="inlineFormInputGroup">Coordinador administrativo</label>
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fas fa-user-tie"></i></div>
+                </div>
+                <input type="text" disabled class="form-control" placeholder="Coordinador admvo" value="{{storageService.getCurrentSession().user.nb_coordinador_administrativo}}">
+              </div>
+          </div>
+        
+          <a [routerLink]="['/']"class="btn btn-primary">Volver al inicio</a>
+        </div>
+      </div>
+</div>

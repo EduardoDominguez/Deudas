@@ -1,0 +1,114 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Agregar periodo</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<div class="modal-body">
+  <form class="row ">
+    <div class="form-group col-6">
+        <label for="año" class="col-12 col-form-label">Año</label>
+        <div class="col-12">
+            <select class="col-sm-12 form-control" [(ngModel)]="anio" name="anio" [disabled]="isEnabledCombo"> 
+                <option [ngValue]="0" disabled>Seleccione año</option>
+                <option  *ngFor="let anio of comboAnios" [ngValue]="anio">{{anio}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group col-6">
+        <label for="año" class="col col-form-label">No. Periodo</label>
+        <div class="col">
+            <select class="col-sm-12 form-control" [(ngModel)]="periodo" name="periodo">
+                <option [ngValue]="0" disabled>Seleccione periodo</option>
+                <option  *ngFor="let periodo of comboPeriodos" [ngValue]="periodo">{{periodo}}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group col-12">
+      <hr>
+      <h5 class="text-center text-info">Seleccione rango de fechas</h5>
+    </div>
+
+    <div class="col">
+        <h6 >Alta de bienes</h6>
+        <p>
+        <button type="button" class="btn" [ngClass]="{'btn-outline-dark': !rangoAltaValido, 'btn-success': rangoAltaValido}" (click)="isCollapsedAlta = !isCollapsedAlta"
+                [attr.aria-expanded]="!isCollapsedAlta" aria-controls="collapseAlta">
+                Ver/ocultar calendario <i class="fas fa-calendar-alt"></i>
+        </button>
+        </p>
+        <div id="collapseAlta" [ngbCollapse]="isCollapsedAlta">
+          <div class="card">
+            <div class="card-body">
+                <app-datepciker-range (rangoValido)="rangoAltaValido = $event" #fechaAltaBienes></app-datepciker-range>
+            </div>
+          </div>
+        </div>
+    </div>  
+    
+    <div class="col">
+        <h6 >Captura y recepci&oacute;n</h6>
+        <p>
+            <button type="button" class="btn" [ngClass]="{'btn-outline-dark': !rangoCapturaValido, 'btn-success': rangoCapturaValido}" (click)="isCollapsedCaptura = !isCollapsedCaptura"
+                    [attr.aria-expanded]="!isCollapsedCaptura" aria-controls="collapseCaptura">
+                    Ver/ocultar calendario <i class="fas fa-calendar-alt"></i>
+            </button>
+        </p>
+        <div id="collapseCaptura" [ngbCollapse]="isCollapsedCaptura">
+          <div class="card">
+            <div class="card-body">
+                <app-datepciker-range (rangoValido)="rangoCapturaValido = $event" #fechaCapturaRecepcion></app-datepciker-range>
+                
+            </div>
+          </div>
+        </div>
+    </div>    
+    <div class="form-group col">
+        <h6 >Entrega de bienes</h6>
+        <p>
+            <button type="button" class="btn" [ngClass]="{'btn-outline-dark': !rangoEntregaValido, 'btn-success': rangoEntregaValido}" (click)="isCollapsedEntrega = !isCollapsedEntrega"
+                    [attr.aria-expanded]="!isCollapsedEntrega" aria-controls="collapseEntrega">
+              Ver/ocultar calendario <i class="fas fa-calendar-alt"></i>
+            </button>
+        </p>
+        <div id="collapseEntrega" [ngbCollapse]="isCollapsedEntrega">
+          <div class="card">
+            <div class="card-body">
+                <app-datepciker-range (rangoValido)="rangoEntregaValido = $event" #fechaEntrega></app-datepciker-range>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="form-group col-12">
+        <button type="button" (click)="Agregar()" class="form-control btn btn-primary">Agregar</button>
+    </div>
+    
+  </form>
+  <table class="table table-primary  gray table-striped">
+    <thead>
+        <tr>
+            <th>No. Periodo</th> 
+            <th>Alta de bienes</th> 
+            <th>Captura y recepc&oacute;n de solicitudes de compra</th> 
+            <th>Entrega de bienes</th> 
+            <th>&nbsp;</th> 
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let periodo of tablaPeriodos">
+          <td>{{periodo.no_periodo}}</td>
+          <td>{{periodo.alta_recepcion_rango}}</td>
+          <td>{{periodo.captura_recepcion_rango}}</td>
+          <td>{{periodo.entrega_bienes_rango}}</td>
+          <td class="text-danger"><span class="btn" (click)="eliminaPeriodo(periodo)">X</span></td>
+        </tr>
+    </tbody>
+    </table>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="guardarPeriodos()">Guardar</button>
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Save click')">Cancelar</button>
+</div>

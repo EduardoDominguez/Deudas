@@ -28,3 +28,5 @@ C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.DAL\obj\Debug\D
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.DAL\obj\Debug\Deudas.DAL.dll
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.DAL\obj\Debug\Deudas.DAL.pdb
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.DAL\obj\Debug\Deudas.DAL.csprojAssemblyReference.cache
+C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.DAL\bin\Debug\Deudas.EL.dll
+C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.DAL\bin\Debug\Deudas.EL.pdb

@@ -12,12 +12,16 @@ namespace Deudas.DAL.Modelo
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class deudasEntities : DbContext
     {
         public deudasEntities()
             : base("name=deudasEntities")
         {
+            this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -29,9 +33,29 @@ namespace Deudas.DAL.Modelo
         public virtual DbSet<cargos_deudas> cargos_deudas { get; set; }
         public virtual DbSet<detalle_deuda> detalle_deuda { get; set; }
         public virtual DbSet<deudas> deudas { get; set; }
-        public virtual DbSet<ingresos> ingresos { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<usuarios> usuarios { get; set; }
         public virtual DbSet<gastos> gastos { get; set; }
+        public virtual DbSet<ingresos> ingresos { get; set; }
+        public virtual DbSet<usuarios> usuarios { get; set; }
+    
+        public virtual int spAddEditAbono(Nullable<decimal> cantidad, Nullable<int> idDeuda, Nullable<int> idIngreso, Nullable<int> idUsuario, ObjectParameter rET_NUMEROERROR, ObjectParameter rET_MENSAJEERROR, ObjectParameter rET_VALORDEVUELTO)
+        {
+            var cantidadParameter = cantidad.HasValue ?
+                new ObjectParameter("Cantidad", cantidad) :
+                new ObjectParameter("Cantidad", typeof(decimal));
+    
+            var idDeudaParameter = idDeuda.HasValue ?
+                new ObjectParameter("IdDeuda", idDeuda) :
+                new ObjectParameter("IdDeuda", typeof(int));
+    
+            var idIngresoParameter = idIngreso.HasValue ?
+                new ObjectParameter("IdIngreso", idIngreso) :
+                new ObjectParameter("IdIngreso", typeof(int));
+    
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("IdUsuario", idUsuario) :
+                new ObjectParameter("IdUsuario", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spAddEditAbono", cantidadParameter, idDeudaParameter, idIngresoParameter, idUsuarioParameter, rET_NUMEROERROR, rET_MENSAJEERROR, rET_VALORDEVUELTO);
+        }
     }
 }

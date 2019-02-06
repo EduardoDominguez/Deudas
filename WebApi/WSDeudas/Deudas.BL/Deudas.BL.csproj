@@ -39,6 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbonoNegocio.cs" />
+    <Compile Include="CargoNegocio.cs" />
+    <Compile Include="DeudaNegocio.cs" />
     <Compile Include="IngresoNegocio.cs" />
     <Compile Include="LoginNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -47,6 +50,10 @@
     <ProjectReference Include="..\Deudas.DAL\Deudas.DAL.csproj">
       <Project>{9d29cf16-fa46-4660-8528-ad7a71535157}</Project>
       <Name>Deudas.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Deudas.EL\Deudas.EL.csproj">
+      <Project>{92670eb5-28d8-44f0-a243-cb8ed86fc633}</Project>
+      <Name>Deudas.EL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -22,5 +22,13 @@ namespace Deudas.BL
             IngresoOperaciones pDatos = new IngresoOperaciones();
             return pDatos.consultarTodos();
         }
+
+        public List<ingresos> ConsultarPorId(int pIdIngreso)
+        {
+            IngresoOperaciones pDatos = new IngresoOperaciones();
+            return pDatos.ConsultarPorId(pIdIngreso);
+        }
+
+        
     }
 }

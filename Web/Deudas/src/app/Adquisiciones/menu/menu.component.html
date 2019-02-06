@@ -1,0 +1,121 @@
+<div style="position:relative; ">
+    <nav class="sidebar" [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}" >
+        <!--<div class="toggle-button" [ngClass]="{collapsed: collapsed}" (click)="toggleCollapsed()">
+            <i class="fa fa-fw fa-angle-double-left"></i>&nbsp;
+            <span>{{ 'Colapsar men&uacute;' }}</span>
+        </div>-->
+        <div class="list-group">
+            <div class="nested-menu">
+                <a class="list-group-item" (click)="addExpandClass('catalogo')" title="Cat&aacute;logos">
+                    &nbsp;<i class="fas fa-fw fa-archive"></i>&nbsp;
+                    <span>{{ 'Cat&aacute;logos' }}</span>
+                    <i class="fas fa-angle-right angle-expand"></i>
+                </a>
+                <li class="nested" [class.expand]="showMenu === 'catalogo'">
+                    <ul class="submenu">
+                        <li>
+                            <div>
+                                <a [routerLink]="['/catalogos/periodos']" [routerLinkActive]="['router-link-active']" title="Periodos de compras">
+                                    &nbsp;<i class="fas fa-calendar-alt"></i>&nbsp;
+                                    <span>Periodos de compas</span>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <a  [routerLink]="['/catalogos/direcciones']" [routerLinkActive]="['router-link-active']" title="Direcciones">
+                                &nbsp;<i class="fas fa-university"></i>&nbsp;
+                                <span>Direcciones</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a  [routerLink]="['/catalogos/usuarios-roles']" [routerLinkActive]="['router-link-active']" title="Usuarios/Roles">
+                                &nbsp;<i class="fas fa-address-card"></i>&nbsp;
+                                <span>Usuarios/Roles</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a  [routerLink]="['/catalogos/procedimientos']" [routerLinkActive]="['router-link-active']" title="Procedimientos">
+                                &nbsp;<i class="fa fa-monument"></i>&nbsp;
+                                <span>Procedimientos</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a  [routerLink]="['/catalogos/cog']" [routerLinkActive]="['router-link-active']" title="COG">
+                                &nbsp;<i class="fas fa-money-check"></i>&nbsp;
+                                <span>COG</span>
+                            </a>
+                        </li>
+    
+                    </ul>
+                </li>
+            </div>
+    
+            <div class="nested-menu">
+                <a class="list-group-item" (click)="addExpandClass('programacion')" title="Programaci&oacute;n">
+                    &nbsp;<i class="fab fa-accusoft"></i> &nbsp;
+                    <span>Programaci&oacute;n</span>
+                    <i class="fas fa-angle-right angle-expand"></i>
+                </a>
+                <li class="nested" [class.expand]="showMenu === 'programacion'">
+                    <ul class="submenu">
+                        <li>
+                            <div>
+                                <a [routerLink]="['/programacion/agregar']" [routerLinkActive]="['router-link-active']" title="Agregar nueva programaci&oacute;n">
+                                    &nbsp;<i class="fas fa-folder-plus"></i>&nbsp;
+                                    <span>Agregar</span>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <a  [routerLink]="['/programacion/consultar']" [routerLinkActive]="['router-link-active']" title="Consulta programaciones">
+                                &nbsp;<i class="fas fa-clipboard-list"></i>&nbsp;
+                                <span>Consultar</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+    
+            <a [routerLink]="['/reportes']" [routerLinkActive]="['router-link-active']" class="list-group-item" title="Reportes">
+                &nbsp;<i class="fas fa-clipboard-list"></i> &nbsp;
+                <span>Reportes</span>
+            </a>
+            <a [routerLink]="['/configuracion']" [routerLinkActive]="['router-link-active']" class="list-group-item" title="Configuraci&oacute;n">
+                &nbsp;<i class="fas fa-cogs"></i> &nbsp;
+                <span>Configuraci&oacute;n</span>
+            </a>
+            <!--
+            <div class="nested-menu">
+                <a class="list-group-item" (click)="addExpandClass('profile')">
+                    <span><i class="fa fa-user"></i>&nbsp; {{nombreCompleto}}</span>
+                </a>
+                <li class="nested" [class.expand]="showMenu === 'profile'">
+                    <ul class="submenu">
+                        <li>
+                            <a href="javascript:void(0)">
+                                <span><i class="fa fa-fw fa-user"></i> Perfil </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <span><i class="fas fa-key"></i> Cambio de contrase&ntilde;a</span>
+                            </a>
+                        </li>
+                        <li>
+                                <a href="javascript:void(0)">
+                                    <span><i class="fa fa-fw fa-envelope"></i> Comentarios</span>
+                                </a>
+                            </li>
+                        <li>
+                            <a [routerLink]="['/login']" (click)="onLoggedout()">
+                                <span><i class="fa fa-fw fa-power-off"></i> {{ 'Cerrar sesi&oacute;n' }}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+            -->
+        </div>
+        
+    </nav>
+</div>

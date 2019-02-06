@@ -19,3 +19,5 @@ C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.BL\obj\Debug\De
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.BL\obj\Debug\Deudas.BL.csproj.CopyComplete
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.BL\obj\Debug\Deudas.BL.dll
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.BL\obj\Debug\Deudas.BL.pdb
+C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.BL\bin\Debug\Deudas.EL.dll
+C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.BL\bin\Debug\Deudas.EL.pdb

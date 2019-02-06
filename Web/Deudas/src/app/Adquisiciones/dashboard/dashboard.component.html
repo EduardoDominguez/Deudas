@@ -1,0 +1,17 @@
+<app-topmenu (CambiaMenu)="_toggleSidebar($event, menu)"></app-topmenu>
+<!-- Container for sidebar(s) + page content -->
+<ng-sidebar-container>
+
+    <!-- A sidebar -->
+    <!--<ng-sidebar [(opened)]="_opened" [(closeOnClickOutside)]="_closeOnClickOutSide" [(mode)]="_mode" #sidebar>-->
+    <ng-sidebar (onClosed)="onClosed($event)" [(opened)]="_opened" [(mode)]="_mode" [dock]="_dock" [dockedSize]="_dockedSize" #sidebar>
+        <app-menu #menu></app-menu>
+    </ng-sidebar>
+
+    <!-- Page content -->
+    <div ng-sidebar-content class="container-fluid contenido" [ngClass]="{'sidebar-open':_opened, 'sidebar-close': !_opened}">  
+        <ngx-loading  [show]="loading"></ngx-loading>
+        <router-outlet ></router-outlet>
+    </div>
+
+</ng-sidebar-container>

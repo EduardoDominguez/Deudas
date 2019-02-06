@@ -8,10 +8,13 @@ using WSDeudas.Exceptions;
 using log4net;
 using Deudas.BL;
 using Deudas.DAL.Modelo;
+using System.Web.Http.Cors;
 
 namespace WSDeudas.Controllers
 {
     [Authorize]
+
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api/Login")]
     public class LoginController : ApiController
     {

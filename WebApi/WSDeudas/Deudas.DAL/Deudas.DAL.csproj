@@ -48,6 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbonoOperaciones.cs" />
+    <Compile Include="CargoOperaciones.cs" />
+    <Compile Include="DeudaOperaciones.cs" />
     <Compile Include="IngresoOperaciones.cs" />
     <Compile Include="LoginOperaciones.cs" />
     <Compile Include="Exceptions\BLException.cs" />
@@ -84,9 +87,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Modelo.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\sysdiagrams.cs">
-      <DependentUpon>Modelo.tt</DependentUpon>
-    </Compile>
     <Compile Include="Modelo\usuarios.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
@@ -117,6 +117,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Deudas.EL\Deudas.EL.csproj">
+      <Project>{92670eb5-28d8-44f0-a243-cb8ed86fc633}</Project>
+      <Name>Deudas.EL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

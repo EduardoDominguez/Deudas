@@ -9,11 +9,12 @@ using WSDeudas.Exceptions;
 using WSDeudas.Models.Request;
 using WSDeudas.Models.Response;
 using log4net;
-
+using System.Web.Http.Cors;
 
 namespace WSNomina.Controllers
 {
     [Authorize]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api/Cuenta")]
     public class CuentaController : ApiController
     {

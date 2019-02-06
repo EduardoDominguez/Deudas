@@ -40,8 +40,6 @@ C:\Users\mario.dominguez\Documents\GitHub\Deudas\WebApi\WSDeudas\WSDeudas\bin\es
 C:\Users\mario.dominguez\Documents\GitHub\Deudas\WebApi\WSDeudas\WSDeudas\bin\es\System.Web.Http.WebHost.resources.dll
 C:\Users\mario.dominguez\Documents\GitHub\Deudas\WebApi\WSDeudas\WSDeudas\obj\Debug\WSDeudas.dll
 C:\Users\mario.dominguez\Documents\GitHub\Deudas\WebApi\WSDeudas\WSDeudas\obj\Debug\WSDeudas.pdb
-C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\WSDeudas\obj\Debug\WSDeudas.csprojAssemblyReference.cache
-C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\WSDeudas\obj\Debug\WSDeudas.csproj.CoreCompileInputs.cache
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\WSDeudas\bin\WSDeudas.dll.config
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\WSDeudas\bin\WSDeudas.dll
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\WSDeudas\bin\WSDeudas.pdb
@@ -80,6 +78,13 @@ C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\WSDeudas\bin\System.We
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\WSDeudas\bin\es\System.Net.Http.Formatting.resources.dll
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\WSDeudas\bin\es\System.Web.Http.resources.dll
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\WSDeudas\bin\es\System.Web.Http.WebHost.resources.dll
+C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\WSDeudas\obj\Debug\WSDeudas.csprojAssemblyReference.cache
+C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\WSDeudas\obj\Debug\WSDeudas.csproj.CoreCompileInputs.cache
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\WSDeudas\obj\Debug\WSDeudas.csproj.CopyComplete
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\WSDeudas\obj\Debug\WSDeudas.dll
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\WSDeudas\obj\Debug\WSDeudas.pdb
+C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\WSDeudas\bin\Deudas.EL.dll
+C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\WSDeudas\bin\Deudas.EL.pdb
+C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\WSDeudas\bin\System.Web.Cors.dll
+C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\WSDeudas\bin\System.Web.Http.Cors.dll
+C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\WSDeudas\bin\System.Web.Http.Cors.xml

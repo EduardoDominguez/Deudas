@@ -9,10 +9,14 @@ using WSDeudas.Models.Request;
 using WSDeudas.Models.Response;
 using log4net;
 using System.Configuration;
+using Deudas.BL;
+using Deudas.DAL.Modelo;
+using System.Web.Http.Cors;
 
 namespace WSDeudas.Controllers
 {
     [AllowAnonymous]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api/Autenticar")]
     public class TokenController : ApiController
     {
@@ -35,7 +39,9 @@ namespace WSDeudas.Controllers
             bool isUsernamePasswordValid = false;
 
             if (login != null)
-                isUsernamePasswordValid = loginrequest.Password == "admin" ? true : false;
+                isUsernamePasswordValid = (new LoginNegocio().Login(new usuarios {nick = loginrequest.Username, contrasena = loginrequest.Password }) != null) ? true : false;
+
+            //loginrequest.Password == "admin" ? true : false;
 
             // if credentials are valid
             if (isUsernamePasswordValid)

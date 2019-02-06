@@ -22,13 +22,13 @@ namespace Deudas.DAL.Modelo
         }
     
         public int iddeuda { get; set; }
-        public string nombreDeuda { get; set; }
         public byte estatus { get; set; }
         public Nullable<short> dia_corte { get; set; }
         public Nullable<int> dia_limite_pago { get; set; }
         public System.DateTime fechaalta { get; set; }
         public System.TimeSpan horaalta { get; set; }
         public int idusuario { get; set; }
+        public string nombre { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<abonos_deuda> abonos_deuda { get; set; }

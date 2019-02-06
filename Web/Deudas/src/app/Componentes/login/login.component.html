@@ -1,0 +1,13 @@
+<div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center overflow-x-hide">
+        <div class="login">
+            <img src="https://images.vexels.com/media/users/3/143188/isolated/preview/5f44f3160a09b51b4fa4634ecdff62dd-icono-de-dinero-by-vexels.png">
+            <form method="post" (submit)="iniciarSesion()">
+                <input type="text" [(ngModel)]="usuario" name="usuario" placeholder="Usuario" required autocomplete="off" />
+                <input type="password" [(ngModel)]="password" name="password" placeholder="Contrase&ntilde;a" required/>
+                <button type="submit" class="btn btn-primary btn-block btn-large">Entrar</button>        
+            </form>
+        </div>
+    </div>
+    <ngx-loading [show]="loading"></ngx-loading>
+</div>

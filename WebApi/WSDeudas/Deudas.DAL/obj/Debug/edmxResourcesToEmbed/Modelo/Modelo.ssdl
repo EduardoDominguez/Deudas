@@ -32,8 +32,8 @@
     <Key>
       <PropertyRef Name="iddeuda" />
     </Key>
-    <Property Name="iddeuda" Type="int" Nullable="false" />
-    <Property Name="nombreDeuda" Type="text" Nullable="false" />
+    <Property Name="iddeuda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="text" Nullable="false" />
     <Property Name="estatus" Type="tinyint" Nullable="false" />
     <Property Name="dia_corte" Type="smallint" />
     <Property Name="dia_limite_pago" Type="int" />
@@ -63,17 +63,8 @@
     <Property Name="cantidad_inicial" Type="decimal" Precision="18" Scale="0" />
     <Property Name="cantidad_actual" Type="decimal" Precision="18" Scale="0" />
     <Property Name="fecha" Type="date" Nullable="false" />
-    <Property Name="nombre" Type="varchar" MaxLength="60" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="idusuario" Type="int" />
   </EntityType>
   <EntityType Name="usuarios">
     <Key>
@@ -174,6 +165,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="spAddEditAbono" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Cantidad" Type="decimal" Mode="In" />
+    <Parameter Name="IdDeuda" Type="int" Mode="In" />
+    <Parameter Name="IdIngreso" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="RET_NUMEROERROR" Type="int" Mode="InOut" />
+    <Parameter Name="RET_MENSAJEERROR" Type="varchar" Mode="InOut" />
+    <Parameter Name="RET_VALORDEVUELTO" Type="varchar" Mode="InOut" />
+  </Function>
   <EntityContainer Name="DeudasModelStoreContainer">
     <EntitySet Name="abonos_deuda" EntityType="Self.abonos_deuda" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="cargos_deudas" EntityType="Self.cargos_deudas" Schema="dbo" store:Type="Tables" />
@@ -181,7 +181,6 @@
     <EntitySet Name="deudas" EntityType="Self.deudas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="gastos" EntityType="Self.gastos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ingresos" EntityType="Self.ingresos" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="fk_cargodeuda" Association="Self.fk_cargodeuda">
       <End Role="deudas" EntitySet="deudas" />

@@ -12,6 +12,9 @@ namespace WSDeudas
         {
             // Configuración y servicios de API web
 
+            // New code
+            config.EnableCors();
+
             // Rutas de API web
             config.MapHttpAttributeRoutes();
 

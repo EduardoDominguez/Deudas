@@ -1,0 +1,121 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+        PROGRAMA ANUAL DE ADQUISICIONES Y CONTRATACIONES 
+    </div>
+    <div class="card-body">
+    <div class="row">
+        <div class="form-group col-sm-12 col-md-6">
+            <label for="cmbUr">Unidad Responsable</label>
+            <select class="form-control" name="cmbUr" [(ngModel)]="cmbUr">
+              <option *ngFor="let ur of (comboUR)" [ngValue]="ur">{{ ur.clave_ur }} - {{ ur.nombre }}</option>
+            </select>
+        </div>
+        <div class="form-group col-sm-12 col-md-6">
+            <label for="cmbCuentaEspecifica">Cuenta espec&iacute;fica</label>
+            <select class="form-control selectpicker" name="cmbCuentaEspecifica" [(ngModel)]="cmbCuentaEspecifica" data-live-search="true">
+              <option *ngFor="let cog of (comboPartidas)" [ngValue]="cog">{{ cog.partida }} - {{ cog.nombre }}</option>
+            </select>
+        </div>
+        <div class="form-group col-sm-12 col-md-4">
+            <label for="txtPresupuestoAsignado">Presupuesto asignado</label>
+            <input type="number" class="form-control" id="txtPresupuestoAsignado" [(ngModel)]="cantidad_total_presupuesto">
+        </div>
+        <div class="form-group col-sm-12 col-md-4">
+            <label for="cmbOrigenRecuerso">Origen del Recurso</label>
+            <select class="form-control" name="cmbOrigenRecuerso" [(ngModel)]="cmbOrigenRecuerso">
+              <option value="Municipal">Municipal</option>
+              <option value="Estatal">Estatal</option>
+              <option value="Federal">Federal</option>
+            </select>
+        </div>
+        <div class="form-group col-sm-12 col-md-4">
+            <label for="cmbAplicacionPresupuesto">Aplicaci&oacute;n del presupuesto</label>
+            <select class="form-control" name="cmbAplicacionPresupuesto" [(ngModel)]="cmbAplicacionPresupuesto">
+                <option value="Gasto_Corriente">Gasto Corriente</option>
+                <option value="Proyecto_de_inversion">Proyecto de inversi&oacute;n</option>
+            </select>
+        </div>
+        <div class="alert alert-primary form-group col-12" role="alert">
+            Periodo de programación para la erogaci&oacute;n del gasto
+        </div>
+
+        <blockquote class="col-12">
+            <footer class="blockquote-footer">Las cantidades deben ser expresadas en pesos $</footer>
+        </blockquote>
+        <div class="form-group col-sm-12 col-md-4">
+            <label for="txtMontoPrimer">Monto del Primer Periodo</label>
+            <input type="text" class="form-control" id="txtMontoPrimer" 
+            OnlyNumber="true" 
+            [(ngModel)]="cantidad_primer_periodo"
+            (blur)="cantidad_primer_periodo=currencyInputFormat($event)">
+        </div>
+        <div class="form-group col-sm-12 col-md-4">
+            <label for="txtMontoSegundo">Monto del Segundo Periodo</label>
+            <input type="text" class="form-control" id="txtMontoSegundo" 
+            [(ngModel)]="cantidad_segundo_periodo"
+            (blur)="cantidad_segundo_periodo=currencyInputFormat($event)">
+        </div>
+        <div class="form-group col-sm-12 col-md-4">
+            <label for="txtMontoTercero">Monto del tercer Periodo</label>
+            <input type="text" class="form-control" id="txtMontoTercero"
+            [(ngModel)]="cantidad_tercer_periodo"
+            (blur)="cantidad_tercer_periodo=currencyInputFormat($event)">
+        </div>
+
+        <div class="form-group col-12">
+            <label for="txtObservaciones">Observaciones o informaci&oacute;n adicional</label>
+            <blockquote class="col-12">
+                <footer class="blockquote-footer">Indicar cualquier situaci&oacute;n particular que debe tomarse en cuenta para las adquisiciones de los bienes o servicios de dicha cuenta espec&iacute;fica.</footer>
+            </blockquote>
+            <textarea class="form-control" [(ngModel)]="observaciones" id="txtObservaciones" rows="3"></textarea>
+        </div>
+        
+        <div class="form-group col-12">
+            <button type="button" class="btn btn-outline-primary float-right" (click)="agregarRegistroProgramacion()">Agregar a la lista</button>
+        </div>
+
+        <div class="col-12 form-group">
+          <table class="table table-primary table-striped gray" style="width: 100%;">
+            <thead>
+              <th>UR</th>
+              <th>Cuenta</th>
+              <th>Origen</th>
+              <th>Aplicaci&oacute;n</th>
+              <th>1er periodo</th>
+              <th>2do periodo</th>
+              <th>3er periodo</th>
+              <th>Observaciones</th>
+              <th>Acci&oacute;n</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let registro of arrRegistrosProgramacion">
+                <td>{{registro.ur.clave_ur}}</td>
+                <td>{{registro.partida.partida}}</td>
+                <td>{{registro.origen}}</td>
+                <td>{{registro.aplicacion}}</td>
+                <td>{{registro.cantidad_primer_periodo|currency:'MXN'}}</td>
+                <td>{{registro.cantidad_segundo_periodo|currency:'MXN'}}</td>
+                <td>{{registro.cantidad_tercer_periodo|currency:'MXN'}}</td>
+                <td>{{registro.observaciones}}</td>
+                <td>
+                    <a class="btn btn-danger btn-sm" role="button" title="Quitar"><i class="fas fa-trash-alt"></i></a>
+                    <a class="btn btn-success btn-sm" role="button" title="Editar" (click)="editarRegistroTabla(registro)"><i class="fas fa-edit"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="form-group col-12">
+            <button type="button" class="btn btn-outline-primary  btn-block form-group col-12">Guardar</button>
+        </div>
+    </div>
+      <!--
+      <blockquote class="blockquote mb-0">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+        <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+      </blockquote>-->
+    </div><!--Fin panel card-body-->
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center flex-row">
+        <div class="botones-catalogos">
+            <button (click)="open()" class="btn btn-outline-primary"> <i class="fas fa-plus"></i> Agregar </button>
+        </div>
+        <div class="d-flex">
+            <p class="alert alert-success" ng role="alert">
+                <span class="text-center text-success">Periodo activo</span>
+            </p>
+            <p class="alert alert-danger" ng role="alert">
+                <span class="text-center text-danger">Periodo inactivo</span>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+            <div class="justify-content-center col" *ngFor="let periodos of dataSource">
+                <hr/>
+                <div class="alert" [ngClass]="{'alert-danger':!periodos[0].fg_activo, 'alert-success':periodos[0].fg_activo}" ng role="alert">
+                    <h4 class="text-center" [ngClass]="{'text-danger':!periodos[0].fg_activo, 'text-success':periodos[0].fg_activo}">{{periodos[0].cl_anio}}</h4>
+                </div>
+                <table style="width:100%"  class="table table-primary table-striped gray table-bordered">
+                    <thead>
+                        <tr>
+                            <th>No. Periodo</th>
+                            <th>Altas de bienes (características, precios y cuenta presupuestal)</th>
+                            <th>Captura y recepción de solicitudes de compra </th>
+                            <th>Entrega de bienes</th>                
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let periodo of periodos" class="text-center">
+                            <th>{{periodo.no_periodo}}</th>
+                            <th>{{periodo.alta_recepcion_rango}}</th>
+                            <th>{{periodo.captura_recepcion_rango}}</th>
+                            <th>{{periodo.entrega_bienes_rango}}</th>
+                        </tr>
+                    </tbody>
+                    </table>
+            </div>  
+    </div>
+      
+</div>
