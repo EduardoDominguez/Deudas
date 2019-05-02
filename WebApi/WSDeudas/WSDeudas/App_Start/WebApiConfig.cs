@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using WSDeudas.Handlers;
 
 namespace WSDeudas
@@ -11,9 +12,6 @@ namespace WSDeudas
         public static void Register(HttpConfiguration config)
         {
             // Configuración y servicios de API web
-
-            // New code
-            config.EnableCors();
 
             // Rutas de API web
             config.MapHttpAttributeRoutes();
@@ -25,6 +23,9 @@ namespace WSDeudas
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            EnableCorsAttribute cors = new EnableCorsAttribute("*","*","*");
+            config.EnableCors(cors);
         }
     }
 }

@@ -179,6 +179,17 @@
           <Parameter Name="RET_MENSAJEERROR" Type="varchar" Mode="InOut" />
           <Parameter Name="RET_VALORDEVUELTO" Type="varchar" Mode="InOut" />
         </Function>
+        <Function Name="spAddUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="Apepaterno" Type="varchar" Mode="In" />
+          <Parameter Name="Apematerno" Type="varchar" Mode="In" />
+          <Parameter Name="Nick" Type="varchar" Mode="In" />
+          <Parameter Name="Correo" Type="varchar" Mode="In" />
+          <Parameter Name="Contrasena" Type="varchar" Mode="In" />
+          <Parameter Name="RET_NUMEROERROR" Type="int" Mode="InOut" />
+          <Parameter Name="RET_MENSAJEERROR" Type="varchar" Mode="InOut" />
+          <Parameter Name="RET_VALORDEVUELTO" Type="varchar" Mode="InOut" />
+        </Function>
         <EntityContainer Name="DeudasModelStoreContainer">
           <EntitySet Name="abonos_deuda" EntityType="Self.abonos_deuda" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cargos_deudas" EntityType="Self.cargos_deudas" Schema="dbo" store:Type="Tables" />
@@ -261,6 +272,17 @@
             <Parameter Name="IdDeuda" Mode="In" Type="Int32" />
             <Parameter Name="IdIngreso" Mode="In" Type="Int32" />
             <Parameter Name="IdUsuario" Mode="In" Type="Int32" />
+            <Parameter Name="RET_NUMEROERROR" Mode="InOut" Type="Int32" />
+            <Parameter Name="RET_MENSAJEERROR" Mode="InOut" Type="String" />
+            <Parameter Name="RET_VALORDEVUELTO" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spAddUsuario">
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Apepaterno" Mode="In" Type="String" />
+            <Parameter Name="Apematerno" Mode="In" Type="String" />
+            <Parameter Name="Nick" Mode="In" Type="String" />
+            <Parameter Name="Correo" Mode="In" Type="String" />
+            <Parameter Name="Contrasena" Mode="In" Type="String" />
             <Parameter Name="RET_NUMEROERROR" Mode="InOut" Type="Int32" />
             <Parameter Name="RET_MENSAJEERROR" Mode="InOut" Type="String" />
             <Parameter Name="RET_VALORDEVUELTO" Mode="InOut" Type="String" />
@@ -540,6 +562,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="spAddEditAbono" FunctionName="DeudasModel.Store.spAddEditAbono" />
+          <FunctionImportMapping FunctionImportName="spAddUsuario" FunctionName="DeudasModel.Store.spAddUsuario" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

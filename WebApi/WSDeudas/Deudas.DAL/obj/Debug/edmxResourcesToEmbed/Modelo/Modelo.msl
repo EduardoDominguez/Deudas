@@ -90,5 +90,6 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="spAddEditAbono" FunctionName="DeudasModel.Store.spAddEditAbono" />
+    <FunctionImportMapping FunctionImportName="spAddUsuario" FunctionName="DeudasModel.Store.spAddUsuario" />
   </EntityContainerMapping>
 </Mapping>

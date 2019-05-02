@@ -29,7 +29,6 @@ export class TokenService {
   
   /** POST: add a new hero to the server */
   getToken (loginObj: LoginObject): Observable<String> {
-    console.log(loginObj);
     return this.http.post<String>(this.basePath, loginObj, httpOptions).pipe(
       tap(() =>console.log("Petición HTTP ejecutada para token")),
       map(res  =>  res as String),

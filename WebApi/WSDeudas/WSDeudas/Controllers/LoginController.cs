@@ -12,8 +12,8 @@ using System.Web.Http.Cors;
 
 namespace WSDeudas.Controllers
 {
-    [Authorize]
-
+    //[Authorize]
+    [AllowAnonymous]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api/Login")]
     public class LoginController : ApiController
@@ -37,7 +37,10 @@ namespace WSDeudas.Controllers
                 var usuario = pNegocio.Login(acceso);
 
                 if (usuario != null)
+                {
                     respuesta.Exito = true;
+                    respuesta.usuario = usuario;
+                }
                 else
                 {
                     respuesta.Mensaje = "El usuario o contraseña son incorrectos.";

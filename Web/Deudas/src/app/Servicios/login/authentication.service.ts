@@ -17,8 +17,6 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AuthenticationService {
-  //private basePath = 'http://localhost:3000/autenticar/';
-  //private basePath = 'autenticar/';
   private basePath : string;
 
 

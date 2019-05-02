@@ -116,6 +116,7 @@
     <Compile Include="Controllers\IngresosController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\TokenController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Exceptions\ServiceException.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -123,10 +124,12 @@
     <Compile Include="Handlers\TokenValidationHandler.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Request\AbonoRequest.cs" />
+    <Compile Include="Models\Request\AgregaUsuarioRequesst.cs" />
     <Compile Include="Models\Request\DeudasRequest.cs" />
     <Compile Include="Models\Request\IngresosRequest.cs" />
     <Compile Include="Models\Request\LoginRequest.cs" />
     <Compile Include="Models\Request\TokenRequest.cs" />
+    <Compile Include="Models\Response\AgregaUsuarioResponse.cs" />
     <Compile Include="Models\Response\DeudaConsultaResponse.cs" />
     <Compile Include="Models\Response\IngresoConsultaResponse.cs" />
     <Compile Include="Models\Response\IngresoResponse.cs" />

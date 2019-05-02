@@ -14,7 +14,8 @@ using System.Web.Http.Cors;
 
 namespace WSDeudas.Controllers
 {
-    [Authorize]
+    //[Authorize]
+    [AllowAnonymous]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api/Deudas")]
     public class DeudaController : ApiController

@@ -45,6 +45,17 @@
       <Parameter Name="RET_MENSAJEERROR" Mode="InOut" Type="String" />
       <Parameter Name="RET_VALORDEVUELTO" Mode="InOut" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="spAddUsuario">
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Apepaterno" Mode="In" Type="String" />
+      <Parameter Name="Apematerno" Mode="In" Type="String" />
+      <Parameter Name="Nick" Mode="In" Type="String" />
+      <Parameter Name="Correo" Mode="In" Type="String" />
+      <Parameter Name="Contrasena" Mode="In" Type="String" />
+      <Parameter Name="RET_NUMEROERROR" Mode="InOut" Type="Int32" />
+      <Parameter Name="RET_MENSAJEERROR" Mode="InOut" Type="String" />
+      <Parameter Name="RET_VALORDEVUELTO" Mode="InOut" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="abonos_deuda">
     <Key>

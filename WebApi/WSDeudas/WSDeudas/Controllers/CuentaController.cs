@@ -13,7 +13,8 @@ using System.Web.Http.Cors;
 
 namespace WSNomina.Controllers
 {
-    [Authorize]
+    //[Authorize]
+    [AllowAnonymous]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api/Cuenta")]
     public class CuentaController : ApiController

@@ -57,5 +57,34 @@ namespace Deudas.DAL.Modelo
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spAddEditAbono", cantidadParameter, idDeudaParameter, idIngresoParameter, idUsuarioParameter, rET_NUMEROERROR, rET_MENSAJEERROR, rET_VALORDEVUELTO);
         }
+    
+        public virtual int spAddUsuario(string nombre, string apepaterno, string apematerno, string nick, string correo, string contrasena, ObjectParameter rET_NUMEROERROR, ObjectParameter rET_MENSAJEERROR, ObjectParameter rET_VALORDEVUELTO)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var apepaternoParameter = apepaterno != null ?
+                new ObjectParameter("Apepaterno", apepaterno) :
+                new ObjectParameter("Apepaterno", typeof(string));
+    
+            var apematernoParameter = apematerno != null ?
+                new ObjectParameter("Apematerno", apematerno) :
+                new ObjectParameter("Apematerno", typeof(string));
+    
+            var nickParameter = nick != null ?
+                new ObjectParameter("Nick", nick) :
+                new ObjectParameter("Nick", typeof(string));
+    
+            var correoParameter = correo != null ?
+                new ObjectParameter("Correo", correo) :
+                new ObjectParameter("Correo", typeof(string));
+    
+            var contrasenaParameter = contrasena != null ?
+                new ObjectParameter("Contrasena", contrasena) :
+                new ObjectParameter("Contrasena", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spAddUsuario", nombreParameter, apepaternoParameter, apematernoParameter, nickParameter, correoParameter, contrasenaParameter, rET_NUMEROERROR, rET_MENSAJEERROR, rET_VALORDEVUELTO);
+        }
     }
 }
