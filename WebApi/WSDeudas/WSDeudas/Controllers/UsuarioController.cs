@@ -36,16 +36,16 @@ namespace WSDeudas.Controllers
                     respuesta.Mensaje = "No se recibió un usuario a registrar.";
                 else if (pUsuarioRequest.Nombre.Trim().Equals(""))
                     respuesta.Mensaje = "El elemento <<Nombre>> no puede estar vacío.";
-                else if (pUsuarioRequest.Apematero.Trim().Equals(""))
-                    respuesta.Mensaje = "El elemento <<Apematero>> no puede estar vacío.";
+                else if (pUsuarioRequest.Apematerno.Trim().Equals(""))
+                    respuesta.Mensaje = "El elemento <<Apematerno>> no puede estar vacío.";
                 else if (pUsuarioRequest.Apepaterno.Trim().Equals(""))
                     respuesta.Mensaje = "El elemento <<Apepaterno>> no puede estar vacío.";
-                else if (pUsuarioRequest.Apematero.Trim().Equals(""))
-                    respuesta.Mensaje = "El elemento <<Apematero>> no puede estar vacío.";
                 else if (pUsuarioRequest.Correo.Trim().Equals(""))
                     respuesta.Mensaje = "El elemento <<Correo>> no puede estar vacío.";
                 else if (pUsuarioRequest.Nick.Trim().Equals(""))
                     respuesta.Mensaje = "El elemento <<Nick>> no puede estar vacío.";
+                else if (pUsuarioRequest.Password.Trim().Equals(""))
+                    respuesta.Mensaje = "El elemento <<Password>> no puede estar vacío.";
                 else
                 {
 
@@ -53,7 +53,7 @@ namespace WSDeudas.Controllers
                     {
                         nombre = pUsuarioRequest.Nombre,
                         appaterno = pUsuarioRequest.Apepaterno,
-                        apmaterno = pUsuarioRequest.Apematero,
+                        apmaterno = pUsuarioRequest.Apematerno,
                         correo = pUsuarioRequest.Correo,
                         nick = pUsuarioRequest.Nick,
                         contrasena = pUsuarioRequest.Password

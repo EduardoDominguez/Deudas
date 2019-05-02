@@ -1,0 +1,3 @@
+2019-05-02 01:20:03,008 [10] ERROR WSDeudas.Controllers.UsuarioController [(null)] ID=(null) - [WSDeudas - Usuarios/Agregar ][SID:9639faa3-af01-4956-96da-f82e9688a9c8]Error Interno del Servicio [GUID: 8d7856a4-a9ad-4d83-b3af-0efc6555b8fc].
+System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en WSDeudas.Controllers.UsuarioController.Agregar(AgregaUsuarioRequest pUsuarioRequest)
