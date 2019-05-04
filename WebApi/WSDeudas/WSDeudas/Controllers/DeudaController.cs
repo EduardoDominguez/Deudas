@@ -161,26 +161,27 @@ namespace WSDeudas.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, respuesta);
         }
 
-        [HttpPost]
-        [Route("Cargo")]
-        public HttpResponseMessage AgregarCargo()
+
+        [HttpGet]
+        [Route("ByUser/{idUsuario}")]
+        public HttpResponseMessage ConsultaPorUsuario(int idUsuario)
         {
             var respuesta = new DeudaConsultaResponse { };
-            var strMetodo = "WSDeudas - Deudas/Consulta ";
+            var strMetodo = "WSDeudas - Deudas/ConsultaPorUsuario ";
             string sid = Guid.NewGuid().ToString();
 
             try
             {
 
-                respuesta.Deudas = new DeudaNegocio().Consultar();
+                respuesta.Deudas = new DeudaNegocio().ConsultarPorIdUsuario(idUsuario);
 
                 if (respuesta.Deudas.Count > 0)
                 {
                     respuesta.Exito = true;
-                    respuesta.Mensaje = "Se han cargado los ingresos";
+                    respuesta.Mensaje = $"Se han cargado las deuda del usuario con id {idUsuario} con éxito";
                 }
                 else
-                    respuesta.Mensaje = "No se han encontrado ingresos activos.";
+                    respuesta.Mensaje = $"No existen deudas para el usuario con id {idUsuario}.";
 
             }
             catch (ServiceException Ex)
@@ -200,6 +201,48 @@ namespace WSDeudas.Controllers
 
             return Request.CreateResponse(HttpStatusCode.OK, respuesta);
         }
+
+        [HttpGet]
+        [Route("Sumatoria/{idUsuario}")]
+        public HttpResponseMessage ConsultaTotaldeudas(int idUsuario)
+        {
+            var respuesta = new ConsultaTotalDeudasResponse { };
+            var strMetodo = "WSDeudas - Deudas/Consulta sumatoria ";
+            string sid = Guid.NewGuid().ToString();
+
+            try
+            {
+
+                respuesta.Total = new DeudaNegocio().ConsultaSumatoriaCargos(idUsuario);
+                respuesta.Exito = true;
+                //if (respuesta.Deudas.Count > 0)
+                //{
+                //    respuesta.Exito = true;
+                //    respuesta.Mensaje = $"Se han cargado las deuda del usuario con id {pIdUsuario} con éxito";
+                //}
+                //else
+                //    respuesta.Mensaje = $"No existen deudas para el usuario con id {pIdUsuario}.";
+
+            }
+            catch (ServiceException Ex)
+            {
+                respuesta.CodigoError = Ex.Codigo.ToString();
+                respuesta.Mensaje = Ex.Message;
+            }
+            catch (Exception Ex)
+            {
+                string strErrGUI = Guid.NewGuid().ToString();
+                string strMensaje = "Error Interno del Servicio [GUID: " + strErrGUI + "].";
+                log.Error("[" + strMetodo + "]" + "[SID:" + sid + "]" + strMensaje, Ex);
+
+                respuesta.CodigoError = "10001";
+                respuesta.Mensaje = "ERROR INTERNO DEL SERVICIO [" + strErrGUI + "]";
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, respuesta);
+        }
+
+
     }
 }
 

@@ -28,5 +28,18 @@ namespace Deudas.BL
             DeudaOperaciones pDatos = new DeudaOperaciones();
             return pDatos.ConsultarPorId(pIdDeuda);
         }
+
+        public List<deudas> ConsultarPorIdUsuario(int pIdDeuda)
+        {
+            DeudaOperaciones pDatos = new DeudaOperaciones();
+            return pDatos.ConsultarPorIdUsuario(pIdDeuda);
+        }
+
+        public decimal ConsultaSumatoriaCargos(int pIdUsuario)
+        {
+            DeudaOperaciones pDatos = new DeudaOperaciones();
+            return pDatos.ConsultaSumatoriaCargos(pIdUsuario);
+        }
+
     }
 }

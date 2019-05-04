@@ -10,14 +10,14 @@ C:\Users\mario.dominguez\Documents\GitHub\Deudas\WebApi\WSDeudas\Deudas.BL\obj\D
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.BL\bin\Debug\Deudas.BL.dll
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.BL\bin\Debug\Deudas.BL.pdb
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.BL\bin\Debug\Deudas.DAL.dll
+C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.BL\bin\Debug\Deudas.EL.dll
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.BL\bin\Debug\EntityFramework.dll
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.BL\bin\Debug\Deudas.DAL.pdb
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.BL\bin\Debug\Deudas.DAL.dll.config
+C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.BL\bin\Debug\Deudas.EL.pdb
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.BL\bin\Debug\EntityFramework.xml
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.BL\obj\Debug\Deudas.BL.csprojAssemblyReference.cache
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.BL\obj\Debug\Deudas.BL.csproj.CoreCompileInputs.cache
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.BL\obj\Debug\Deudas.BL.csproj.CopyComplete
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.BL\obj\Debug\Deudas.BL.dll
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.BL\obj\Debug\Deudas.BL.pdb
-C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.BL\bin\Debug\Deudas.EL.dll
-C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.BL\bin\Debug\Deudas.EL.pdb

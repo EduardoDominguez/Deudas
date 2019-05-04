@@ -1,4 +1,5 @@
 ﻿using Deudas.DAL.Modelo;
+using Deudas.EL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,6 +43,31 @@ namespace Deudas.DAL
                 return deudas;
             }
         }
-        
+
+        public List<deudas> ConsultarPorIdUsuario(int pIdUsuario)
+        {
+            //List<E_DEUDAS> deudas;
+            using (context = new deudasEntities())
+            {
+                var deudas = (from s in context.deudas
+                              where s.idusuario == pIdUsuario
+                              select s).ToList<deudas>();
+
+                return deudas;
+            }
+        }
+
+
+
+        public decimal ConsultaSumatoriaCargos(int pIdUsuario)
+        {
+            using (context = new deudasEntities())
+            {
+                return context.Database.SqlQuery<decimal>("select sum(cantidad) from deudas d inner join cargos_deudas cd on d.iddeuda = cd.iddeuda where d.idusuario = "+ pIdUsuario + " group by d.idusuario").ToList().FirstOrDefault();
+               
+            }
+        }
+
+
     }
 }

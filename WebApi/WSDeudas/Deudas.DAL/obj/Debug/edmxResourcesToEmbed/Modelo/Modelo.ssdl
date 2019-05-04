@@ -165,11 +165,28 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="spAddCargo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdDeuda" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="Cantidad" Type="decimal" Mode="In" />
+    <Parameter Name="RET_NUMEROERROR" Type="int" Mode="InOut" />
+    <Parameter Name="RET_MENSAJEERROR" Type="varchar" Mode="InOut" />
+    <Parameter Name="RET_VALORDEVUELTO" Type="varchar" Mode="InOut" />
+  </Function>
   <Function Name="spAddEditAbono" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Cantidad" Type="decimal" Mode="In" />
     <Parameter Name="IdDeuda" Type="int" Mode="In" />
     <Parameter Name="IdIngreso" Type="int" Mode="In" />
     <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="RET_NUMEROERROR" Type="int" Mode="InOut" />
+    <Parameter Name="RET_MENSAJEERROR" Type="varchar" Mode="InOut" />
+    <Parameter Name="RET_VALORDEVUELTO" Type="varchar" Mode="InOut" />
+  </Function>
+  <Function Name="spAddIngreso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="Fecha" Type="varchar" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="Cantidad" Type="decimal" Mode="In" />
     <Parameter Name="RET_NUMEROERROR" Type="int" Mode="InOut" />
     <Parameter Name="RET_MENSAJEERROR" Type="varchar" Mode="InOut" />
     <Parameter Name="RET_VALORDEVUELTO" Type="varchar" Mode="InOut" />

@@ -19,14 +19,14 @@ C:\Users\mario.dominguez\Documents\GitHub\Deudas\WebApi\WSDeudas\Deudas.DAL\obj\
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.DAL\bin\Debug\Deudas.DAL.dll.config
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.DAL\bin\Debug\Deudas.DAL.dll
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.DAL\bin\Debug\Deudas.DAL.pdb
+C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.DAL\bin\Debug\Deudas.EL.dll
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.DAL\bin\Debug\EntityFramework.dll
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.DAL\bin\Debug\Deudas.EL.pdb
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.DAL\bin\Debug\EntityFramework.xml
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.DAL\obj\Debug\Deudas.DAL.csprojAssemblyReference.cache
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.DAL\obj\Debug\Deudas.DAL.csproj.CoreCompileInputs.cache
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.DAL\obj\Debug\Deudas.DAL.csproj.CopyComplete
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.DAL\obj\Debug\Deudas.DAL.dll
 C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.DAL\obj\Debug\Deudas.DAL.pdb
-C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.DAL\obj\Debug\Deudas.DAL.csprojAssemblyReference.cache
-C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.DAL\bin\Debug\Deudas.EL.dll
-C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.DAL\bin\Debug\Deudas.EL.pdb

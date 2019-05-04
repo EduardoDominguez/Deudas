@@ -91,5 +91,7 @@
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="spAddEditAbono" FunctionName="DeudasModel.Store.spAddEditAbono" />
     <FunctionImportMapping FunctionImportName="spAddUsuario" FunctionName="DeudasModel.Store.spAddUsuario" />
+    <FunctionImportMapping FunctionImportName="spAddCargo" FunctionName="DeudasModel.Store.spAddCargo" />
+    <FunctionImportMapping FunctionImportName="spAddIngreso" FunctionName="DeudasModel.Store.spAddIngreso" />
   </EntityContainerMapping>
 </Mapping>

@@ -1,6 +1,8 @@
 ﻿using Deudas.DAL.Modelo;
+using Deudas.EL;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +13,7 @@ namespace Deudas.DAL
     {
         private deudasEntities context;
 
-        public int Agregar(ingresos pIngresos)
+        public E_MENSAJE Agregar(E_INGRESO pIngreso)
         {
             using (context = new deudasEntities())
             {
@@ -28,8 +30,19 @@ namespace Deudas.DAL
 
                     return res;
                 }*/
-                return context.Database.ExecuteSqlCommand(String.Format("insert into ingresos (nombre, cantidad_inicial, cantidad_actual, fecha, idusuario) values('{0}', {1}, '{2}', {3})",
-                                                    pIngresos.nombre, pIngresos.cantidad_inicial, pIngresos.cantidad_inicial, pIngresos.fecha.ToString("yyyy-MM-dd"), pIngresos.idusuario));
+                /*return context.Database.ExecuteSqlCommand(String.Format("insert into ingresos (nombre, cantidad_inicial, cantidad_actual, fecha, idusuario) values ('{0}', {1}, {2}, '{3}', {4})",
+                                                    pIngreso.Nombre, pIngreso.Cantidad, pIngreso.Cantidad, pIngreso.Fecha, pIngreso.IdUsuario));*/
+
+
+                ObjectParameter RET_NUMEROERROR = new ObjectParameter("RET_NUMEROERROR", typeof(string));
+                ObjectParameter RET_MENSAJEERROR = new ObjectParameter("RET_MENSAJEERROR", typeof(string));
+                ObjectParameter RET_VALORDEVUELTO = new ObjectParameter("RET_VALORDEVUELTO", typeof(string));
+
+
+                context.spAddIngreso(pIngreso.Nombre, pIngreso.Fecha, pIngreso.IdUsuario, pIngreso.Cantidad, RET_NUMEROERROR, RET_MENSAJEERROR, RET_VALORDEVUELTO);
+
+                E_MENSAJE vMensaje = new E_MENSAJE { RET_NUMEROERROR = int.Parse(RET_NUMEROERROR.Value.ToString()), RET_MENSAJEERROR = RET_MENSAJEERROR.Value.ToString(), RET_VALORDEVUELTO = RET_VALORDEVUELTO.Value.ToString() };
+                return vMensaje;
             }
         }
 
@@ -54,6 +67,17 @@ namespace Deudas.DAL
             }
         }
 
+        public List<ingresos> ConsultarPorUsuairo(int pIdUsuario)
+        {
+            using (context = new deudasEntities())
+            {
+                var ingresos = (from s in context.ingresos
+                                where s.idusuario == pIdUsuario
+                                select s).ToList<ingresos>();
+                return ingresos;
+            }
+        }
+
         public List<ingresos> consultarConSaldo()
         {
             using (context = new deudasEntities())
@@ -64,5 +88,25 @@ namespace Deudas.DAL
                 return ingresos;
             }
         }
+
+        public decimal ConsultaSumatoria(int pIdUsuario)
+        {
+            decimal total = 0;
+            using (context = new deudasEntities())
+            {
+                var ingresos = (from s in context.ingresos
+                                where s.cantidad_actual > 0
+                                && s.idusuario == pIdUsuario
+                                select s).ToList<ingresos>();
+
+                total = ingresos.Sum(i => i.cantidad_actual)??0;
+                
+            }
+
+            return total;
+
+        }
+
+        
     }
 }

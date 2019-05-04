@@ -170,11 +170,28 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="spAddCargo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdDeuda" Type="int" Mode="In" />
+          <Parameter Name="IdUsuario" Type="int" Mode="In" />
+          <Parameter Name="Cantidad" Type="decimal" Mode="In" />
+          <Parameter Name="RET_NUMEROERROR" Type="int" Mode="InOut" />
+          <Parameter Name="RET_MENSAJEERROR" Type="varchar" Mode="InOut" />
+          <Parameter Name="RET_VALORDEVUELTO" Type="varchar" Mode="InOut" />
+        </Function>
         <Function Name="spAddEditAbono" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Cantidad" Type="decimal" Mode="In" />
           <Parameter Name="IdDeuda" Type="int" Mode="In" />
           <Parameter Name="IdIngreso" Type="int" Mode="In" />
           <Parameter Name="IdUsuario" Type="int" Mode="In" />
+          <Parameter Name="RET_NUMEROERROR" Type="int" Mode="InOut" />
+          <Parameter Name="RET_MENSAJEERROR" Type="varchar" Mode="InOut" />
+          <Parameter Name="RET_VALORDEVUELTO" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="spAddIngreso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="Fecha" Type="varchar" Mode="In" />
+          <Parameter Name="IdUsuario" Type="int" Mode="In" />
+          <Parameter Name="Cantidad" Type="decimal" Mode="In" />
           <Parameter Name="RET_NUMEROERROR" Type="int" Mode="InOut" />
           <Parameter Name="RET_MENSAJEERROR" Type="varchar" Mode="InOut" />
           <Parameter Name="RET_VALORDEVUELTO" Type="varchar" Mode="InOut" />
@@ -283,6 +300,23 @@
             <Parameter Name="Nick" Mode="In" Type="String" />
             <Parameter Name="Correo" Mode="In" Type="String" />
             <Parameter Name="Contrasena" Mode="In" Type="String" />
+            <Parameter Name="RET_NUMEROERROR" Mode="InOut" Type="Int32" />
+            <Parameter Name="RET_MENSAJEERROR" Mode="InOut" Type="String" />
+            <Parameter Name="RET_VALORDEVUELTO" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spAddCargo">
+            <Parameter Name="IdDeuda" Mode="In" Type="Int32" />
+            <Parameter Name="IdUsuario" Mode="In" Type="Int32" />
+            <Parameter Name="Cantidad" Mode="In" Type="Decimal" />
+            <Parameter Name="RET_NUMEROERROR" Mode="InOut" Type="Int32" />
+            <Parameter Name="RET_MENSAJEERROR" Mode="InOut" Type="String" />
+            <Parameter Name="RET_VALORDEVUELTO" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spAddIngreso">
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Fecha" Mode="In" Type="String" />
+            <Parameter Name="IdUsuario" Mode="In" Type="Int32" />
+            <Parameter Name="Cantidad" Mode="In" Type="Decimal" />
             <Parameter Name="RET_NUMEROERROR" Mode="InOut" Type="Int32" />
             <Parameter Name="RET_MENSAJEERROR" Mode="InOut" Type="String" />
             <Parameter Name="RET_VALORDEVUELTO" Mode="InOut" Type="String" />
@@ -563,6 +597,8 @@
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="spAddEditAbono" FunctionName="DeudasModel.Store.spAddEditAbono" />
           <FunctionImportMapping FunctionImportName="spAddUsuario" FunctionName="DeudasModel.Store.spAddUsuario" />
+          <FunctionImportMapping FunctionImportName="spAddCargo" FunctionName="DeudasModel.Store.spAddCargo" />
+          <FunctionImportMapping FunctionImportName="spAddIngreso" FunctionName="DeudasModel.Store.spAddIngreso" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

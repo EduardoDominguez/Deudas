@@ -5,16 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using Deudas.DAL.Modelo;
 using Deudas.DAL;
+using Deudas.EL;
 
 
 namespace Deudas.BL
 {
     public class IngresoNegocio
     {
-        public int Agregar(ingresos pIngresos)
+        public E_MENSAJE Agregar(E_INGRESO pIngreso)
         {
             IngresoOperaciones pDatos = new IngresoOperaciones();
-            return pDatos.Agregar(pIngresos);
+            return pDatos.Agregar(pIngreso);
         }
 
         public List<ingresos> Consultar()
@@ -29,6 +30,19 @@ namespace Deudas.BL
             return pDatos.ConsultarPorId(pIdIngreso);
         }
 
-        
+
+        public List<ingresos> ConsultarPorUsuario(int pIdUsuario)
+        {
+            IngresoOperaciones pDatos = new IngresoOperaciones();
+            return pDatos.ConsultarPorUsuairo(pIdUsuario);
+        }
+
+
+        public decimal ConsultaSumatoria(int pIdUsuario)
+        {
+            IngresoOperaciones pDatos = new IngresoOperaciones();
+            return pDatos.ConsultaSumatoria(pIdUsuario);
+        }
+
     }
 }

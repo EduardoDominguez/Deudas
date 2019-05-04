@@ -111,6 +111,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AbonoController.cs" />
+    <Compile Include="Controllers\CargoController.cs" />
     <Compile Include="Controllers\CuentaController.cs" />
     <Compile Include="Controllers\DeudaController.cs" />
     <Compile Include="Controllers\IngresosController.cs" />
@@ -124,12 +125,15 @@
     <Compile Include="Handlers\TokenValidationHandler.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Request\AbonoRequest.cs" />
+    <Compile Include="Models\Request\AgregaCargoRequest.cs" />
     <Compile Include="Models\Request\AgregaUsuarioRequesst.cs" />
     <Compile Include="Models\Request\DeudasRequest.cs" />
     <Compile Include="Models\Request\IngresosRequest.cs" />
     <Compile Include="Models\Request\LoginRequest.cs" />
     <Compile Include="Models\Request\TokenRequest.cs" />
     <Compile Include="Models\Response\AgregaUsuarioResponse.cs" />
+    <Compile Include="Models\Response\ConsultaTotalDeudasResponse.cs" />
+    <Compile Include="Models\Response\ConsultaTotalIngresosResponse.cs" />
     <Compile Include="Models\Response\DeudaConsultaResponse.cs" />
     <Compile Include="Models\Response\IngresoConsultaResponse.cs" />
     <Compile Include="Models\Response\IngresoResponse.cs" />

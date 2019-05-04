@@ -86,5 +86,43 @@ namespace Deudas.DAL.Modelo
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spAddUsuario", nombreParameter, apepaternoParameter, apematernoParameter, nickParameter, correoParameter, contrasenaParameter, rET_NUMEROERROR, rET_MENSAJEERROR, rET_VALORDEVUELTO);
         }
+    
+        public virtual int spAddCargo(Nullable<int> idDeuda, Nullable<int> idUsuario, Nullable<decimal> cantidad, ObjectParameter rET_NUMEROERROR, ObjectParameter rET_MENSAJEERROR, ObjectParameter rET_VALORDEVUELTO)
+        {
+            var idDeudaParameter = idDeuda.HasValue ?
+                new ObjectParameter("IdDeuda", idDeuda) :
+                new ObjectParameter("IdDeuda", typeof(int));
+    
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("IdUsuario", idUsuario) :
+                new ObjectParameter("IdUsuario", typeof(int));
+    
+            var cantidadParameter = cantidad.HasValue ?
+                new ObjectParameter("Cantidad", cantidad) :
+                new ObjectParameter("Cantidad", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spAddCargo", idDeudaParameter, idUsuarioParameter, cantidadParameter, rET_NUMEROERROR, rET_MENSAJEERROR, rET_VALORDEVUELTO);
+        }
+    
+        public virtual int spAddIngreso(string nombre, string fecha, Nullable<int> idUsuario, Nullable<decimal> cantidad, ObjectParameter rET_NUMEROERROR, ObjectParameter rET_MENSAJEERROR, ObjectParameter rET_VALORDEVUELTO)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var fechaParameter = fecha != null ?
+                new ObjectParameter("Fecha", fecha) :
+                new ObjectParameter("Fecha", typeof(string));
+    
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("IdUsuario", idUsuario) :
+                new ObjectParameter("IdUsuario", typeof(int));
+    
+            var cantidadParameter = cantidad.HasValue ?
+                new ObjectParameter("Cantidad", cantidad) :
+                new ObjectParameter("Cantidad", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spAddIngreso", nombreParameter, fechaParameter, idUsuarioParameter, cantidadParameter, rET_NUMEROERROR, rET_MENSAJEERROR, rET_VALORDEVUELTO);
+        }
     }
 }

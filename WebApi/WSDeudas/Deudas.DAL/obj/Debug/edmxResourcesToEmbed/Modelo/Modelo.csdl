@@ -56,6 +56,23 @@
       <Parameter Name="RET_MENSAJEERROR" Mode="InOut" Type="String" />
       <Parameter Name="RET_VALORDEVUELTO" Mode="InOut" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="spAddCargo">
+      <Parameter Name="IdDeuda" Mode="In" Type="Int32" />
+      <Parameter Name="IdUsuario" Mode="In" Type="Int32" />
+      <Parameter Name="Cantidad" Mode="In" Type="Decimal" />
+      <Parameter Name="RET_NUMEROERROR" Mode="InOut" Type="Int32" />
+      <Parameter Name="RET_MENSAJEERROR" Mode="InOut" Type="String" />
+      <Parameter Name="RET_VALORDEVUELTO" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spAddIngreso">
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Fecha" Mode="In" Type="String" />
+      <Parameter Name="IdUsuario" Mode="In" Type="Int32" />
+      <Parameter Name="Cantidad" Mode="In" Type="Decimal" />
+      <Parameter Name="RET_NUMEROERROR" Mode="InOut" Type="Int32" />
+      <Parameter Name="RET_MENSAJEERROR" Mode="InOut" Type="String" />
+      <Parameter Name="RET_VALORDEVUELTO" Mode="InOut" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="abonos_deuda">
     <Key>
