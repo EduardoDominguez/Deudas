@@ -1,0 +1,76 @@
+2019-05-07 22:14:35,760 [10] ERROR WSDeudas.Controllers.NotificacionesController [(null)] ID=(null) - [WSDeudas - Notificacion/Enviar ][SID:784117a3-7c93-4eed-835e-780207bae674]Error Interno del Servicio [GUID: 99666989-1e7f-47fd-b8ab-d8831986c5e0].
+System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en WSDeudas.Controllers.NotificacionesController.Enviar(EnviaNotificacionRequest pEnvivioNotificacion) en C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\WSDeudas\Controllers\NotificacionesController.cs:línea 50
+2019-05-07 22:15:07,616 [9] ERROR WSDeudas.Controllers.NotificacionesController [(null)] ID=(null) - [WSDeudas - Notificacion/Enviar ][SID:7b014608-8ee8-4879-8174-1940cb226a16]Error Interno del Servicio [GUID: c711c916-beb3-48f9-9bbf-90e741ed84a9].
+System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en WSDeudas.Controllers.NotificacionesController.Enviar(EnviaNotificacionRequest pEnvivioNotificacion) en C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\WSDeudas\Controllers\NotificacionesController.cs:línea 50
+2019-05-07 22:16:57,297 [10] ERROR WSDeudas.Controllers.NotificacionesController [(null)] ID=(null) - [WSDeudas - Notificacion/Enviar ][SID:d4aee092-2d0e-4775-a619-8c03dc510969]Error Interno del Servicio [GUID: 14072a90-4251-4d03-aad1-ff5eb4c31b15].
+System.Net.WebException: Error en el servidor remoto: (401) No autorizado.
+   en WSDeudas.Controllers.NotificacionesController.SendMessage(String pTokenDestinatario, String pTitle, String pBoby)
+   en WSDeudas.Controllers.NotificacionesController.Enviar(EnviaNotificacionRequest pEnvivioNotificacion)
+2019-05-07 22:17:30,228 [9] ERROR WSDeudas.Controllers.NotificacionesController [(null)] ID=(null) - [WSDeudas - Notificacion/Enviar ][SID:426a5e16-41dd-48ad-9a82-249685acf7d4]Error Interno del Servicio [GUID: 9e02d228-d8cd-4684-8716-1d5baac3e19d].
+System.Net.WebException: Error en el servidor remoto: (401) No autorizado.
+   en WSDeudas.Controllers.NotificacionesController.SendMessage(String pTokenDestinatario, String pTitle, String pBoby)
+   en WSDeudas.Controllers.NotificacionesController.Enviar(EnviaNotificacionRequest pEnvivioNotificacion)
+2019-05-07 22:18:38,294 [22] ERROR WSDeudas.Controllers.NotificacionesController [(null)] ID=(null) - [WSDeudas - Notificacion/Enviar ][SID:e7003a83-650c-4df9-8b0b-48512bc1312c]Error Interno del Servicio [GUID: f7e95f73-25e6-41fe-a4a1-fbfb4f4a3954].
+System.Net.WebException: Error en el servidor remoto: (401) No autorizado.
+   en WSDeudas.Controllers.NotificacionesController.SendMessage(String pTokenDestinatario, String pTitle, String pBoby)
+   en WSDeudas.Controllers.NotificacionesController.Enviar(EnviaNotificacionRequest pEnvivioNotificacion)
+2019-05-07 22:19:15,409 [10] ERROR WSDeudas.Controllers.NotificacionesController [(null)] ID=(null) - [WSDeudas - Notificacion/Enviar ][SID:c15c6f87-8824-442f-9398-664a2b79c85d]Error Interno del Servicio [GUID: ae23c6a7-aa8b-4ab2-8f4f-b69d2d3c66c9].
+System.Net.WebException: Error en el servidor remoto: (401) No autorizado.
+   en WSDeudas.Controllers.NotificacionesController.SendMessage(String pTokenDestinatario, String pTitle, String pBoby)
+   en WSDeudas.Controllers.NotificacionesController.Enviar(EnviaNotificacionRequest pEnvivioNotificacion)
+2019-05-07 22:40:37,576 [5] ERROR WSDeudas.Controllers.NotificacionesController [(null)] ID=(null) - [WSDeudas - Notificaciones/ActualizaToken ][SID:77235410-8dee-4947-b188-960596c6004d]Error Interno del Servicio [GUID: f3cb7e06-30a3-4a36-9858-db67e712c3c5].
+System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'Nel'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<NonQuery>b__0(DbCommand t, DbCommandInterceptionContext`1 c)
+   en System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   en System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.NonQuery(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   en System.Data.Entity.Internal.InterceptableDbCommand.ExecuteNonQuery()
+   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreCommandInternal(String commandText, Object[] parameters)
+   en System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass59.<ExecuteStoreCommand>b__58()
+   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   en System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass59.<ExecuteStoreCommand>b__57()
+   en System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreCommand(TransactionalBehavior transactionalBehavior, String commandText, Object[] parameters)
+   en System.Data.Entity.Internal.InternalContext.ExecuteSqlCommand(TransactionalBehavior transactionalBehavior, String sql, Object[] parameters)
+   en System.Data.Entity.Database.ExecuteSqlCommand(TransactionalBehavior transactionalBehavior, String sql, Object[] parameters)
+   en System.Data.Entity.Database.ExecuteSqlCommand(String sql, Object[] parameters)
+   en Deudas.DAL.NotificacionOperaciones.ActualizaToken(Int32 pIdUsuario, String pToken) en C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.DAL\NotificacionOperaciones.cs:línea 29
+   en Deudas.BL.NotificacionNegocio.ActualizaToken(Int32 pIdUsuario, String pToken) en C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.BL\NotificacionNegocio.cs:línea 23
+   en WSDeudas.Controllers.NotificacionesController.ActualizaToken(ActualizaTokenRequest pRequestToken) en C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\WSDeudas\Controllers\NotificacionesController.cs:línea 145
+ClientConnectionId:0c4e1ac0-6b1d-4bfd-ac86-f66309893271
+Error Number:207,State:1,Class:16
+2019-05-07 22:41:59,231 [5] ERROR WSDeudas.Controllers.NotificacionesController [(null)] ID=(null) - [WSDeudas - Notificaciones/ActualizaToken ][SID:09ce0789-c87e-4635-b1e9-5d860d9c5abf]Error Interno del Servicio [GUID: 8f159166-4e11-45ec-9179-3539e221bba7].
+System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'Nel'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<NonQuery>b__0(DbCommand t, DbCommandInterceptionContext`1 c)
+   en System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   en System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.NonQuery(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   en System.Data.Entity.Internal.InterceptableDbCommand.ExecuteNonQuery()
+   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreCommandInternal(String commandText, Object[] parameters)
+   en System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass59.<ExecuteStoreCommand>b__58()
+   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   en System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass59.<ExecuteStoreCommand>b__57()
+   en System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreCommand(TransactionalBehavior transactionalBehavior, String commandText, Object[] parameters)
+   en System.Data.Entity.Internal.InternalContext.ExecuteSqlCommand(TransactionalBehavior transactionalBehavior, String sql, Object[] parameters)
+   en System.Data.Entity.Database.ExecuteSqlCommand(TransactionalBehavior transactionalBehavior, String sql, Object[] parameters)
+   en System.Data.Entity.Database.ExecuteSqlCommand(String sql, Object[] parameters)
+   en Deudas.DAL.NotificacionOperaciones.ActualizaToken(Int32 pIdUsuario, String pToken)
+   en Deudas.BL.NotificacionNegocio.ActualizaToken(Int32 pIdUsuario, String pToken) en C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\Deudas.BL\NotificacionNegocio.cs:línea 23
+   en WSDeudas.Controllers.NotificacionesController.ActualizaToken(ActualizaTokenRequest pRequestToken) en C:\Users\black\Documents\Proyectos\Deudas\WebApi\WSDeudas\WSDeudas\Controllers\NotificacionesController.cs:línea 145
+ClientConnectionId:0c4e1ac0-6b1d-4bfd-ac86-f66309893271
+Error Number:207,State:1,Class:16

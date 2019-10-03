@@ -90,6 +90,7 @@
     <Compile Include="Modelo\usuarios.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="NotificacionOperaciones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsuarioOperaciones.cs" />
   </ItemGroup>

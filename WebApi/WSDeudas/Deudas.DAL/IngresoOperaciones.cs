@@ -72,7 +72,7 @@ namespace Deudas.DAL
             using (context = new deudasEntities())
             {
                 var ingresos = (from s in context.ingresos
-                                where s.idusuario == pIdUsuario
+                                where s.idusuario == pIdUsuario && s.cantidad_actual > 0
                                 select s).ToList<ingresos>();
                 return ingresos;
             }

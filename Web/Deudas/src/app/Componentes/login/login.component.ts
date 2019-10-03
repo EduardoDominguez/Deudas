@@ -43,11 +43,24 @@ export class LoginComponent {
     this.tokenService.getToken(login).subscribe(
       respuesta  => {
         console.log(respuesta);
-        /*
-        if(respuesta!= "")
-          this.correctLogin(data.data);
+        
+        if(respuesta!= ""){
+          this.authenticationService.login(login).subscribe(
+            data  => {
+              if(data.estatus)
+                this.correctLogin(data.data);
+              else
+                this.mensajes.showWarning(data.mensaje);
+                
+              this.loading = false;
+          }, error => {
+              //console.log(error);
+              this.mensajes.showError(error.name);
+              this.loading = false;
+          });
+        }
         else
-          this.mensajes.showWarning(data.mensaje);*/
+          this.mensajes.showWarning(data.mensaje);
           
         this.loading = false;
     }, error => {

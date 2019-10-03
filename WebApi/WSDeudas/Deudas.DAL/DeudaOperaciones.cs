@@ -63,8 +63,11 @@ namespace Deudas.DAL
         {
             using (context = new deudasEntities())
             {
-                return context.Database.SqlQuery<decimal>("select sum(cantidad) from deudas d inner join cargos_deudas cd on d.iddeuda = cd.iddeuda where d.idusuario = "+ pIdUsuario + " group by d.idusuario").ToList().FirstOrDefault();
-               
+                //return context.Database.SqlQuery<decimal>("select sum(cd.cantidad - ad.cantidad) from  cargos_deudas cd left join abonos_deuda ad on ad.iddeuda = cd.iddeuda where cd.idusuario = "+ pIdUsuario).ToList().FirstOrDefault();
+                return context.Database.SqlQuery<decimal>("select isnull(sum(cd.cantidad -ISNULL(ad.cantidad, 0)), 0) from cargos_deudas cd left join abonos_deuda ad on ad.iddeuda = cd.iddeuda where cd.idusuario =" + pIdUsuario).ToList().FirstOrDefault();
+                
+
+
             }
         }
 
